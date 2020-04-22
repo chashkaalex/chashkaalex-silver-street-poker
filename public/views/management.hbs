@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table, th, td {
+        border: 1px solid black;
+        text-align: center;
+        width: 99vw;
+        }
+    </style>    
+    <link rel="icon" href="/img/ssp-icon.png">
+    <title>Silver Street Poker - Management</title>
+</head>
+<body>
+    <header>Welcome to Silver St. Poker Management Page</header>
+    <div id="generalButtons">
+       <button type="button" id="loadBackupButton" style="color: green;" onclick="loadBackup()">Load Back-up</button>
+       <button type="button" id="toggleGameLock" style="color: blue;" onclick="toggleGameLock()">Toggle game lock</button>
+    </div>
+    <hr>
+    <h1>Management table</h1>
+    <table id="manageTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Acting</th>
+                <th>Has cards</th>
+                <th>Dealer</th>
+                <th>All In</th>
+                <th>Stack</th>
+                <th>Bet</th>
+                <th>Buttons</th>
+            </tr>        
+        </thead>
+        <tbody id="t-body"></tbody>
+    </table>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/client-script/manager-script.js"></script>
+    
+</body>
+</html>

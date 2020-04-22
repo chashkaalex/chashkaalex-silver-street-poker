@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Poker App</title>
+</head>
+<body>
+    <div id="welcome">Welcome to the Poker App. Please enter your name:
+        <input type="text" id="userName">
+    </div>
+    <hr>
+    <div class="main">        
+        <div class="table">
+            <div class="table-row" id="top-row">
+                    <div class="table-col"></div>
+                    <div class="table-col"></div>
+                    <div class="table-col"></div>
+            </div>
+            <div class="table-row" id="top-gap-row"></div>
+            <div class="table-row" id="middle-row"> 
+                <div class="table-col"></div>
+                <div class="table-col cards-container" >
+                    <div class="cards" id="F1"></div>
+                    <div class="cards" id="F2"></div>
+                    <div class="cards" id="F3"></div>
+                    <div class="cards" id="T"></div>
+                    <div class="cards" id="R"></div>
+                </div>
+                <div class="table-col"></div>           
+            </div>
+            <div class="table-row" id="bottom-gap-row"></div>
+            <div class="table-row" id="bottom-row">
+                <div class="table-col"></div>
+                <div class="table-col cards-container">
+                    <div class="cards" id="H1"></div>
+                    <div class="cards" id="H2"></div>
+                </div>
+                <div class="table-col"></div>
+            </div>                
+        </div>
+
+        
+        <div id="menu">
+            <p>Game menu</p>
+            <hr>
+            <button type="button" id="dealButton">Deal Me!</button>
+        </div>
+    </div>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="script.js"></script>
+</body>
+</html>

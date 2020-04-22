@@ -1,0 +1,40 @@
+#animation{
+	display: none;
+	/* z-index: -1; */
+}
+
+#mountain {
+	height: 18vh;
+	width: 18vh;
+	/*border: 1px solid black;*/
+	position: relative;
+	top: -115vh;
+	right:-10vw;
+	font-size: 20vh;
+}
+
+#flag {
+	/*border: 1px solid black;*/
+	position: relative;
+	top: -70vh;
+	right: -5vw;
+}
+#train {
+	display: none;
+	height: 10vh;
+	text-align: right;
+	/*border: 1px solid black;*/
+	position: relative;
+	right:-25vw;
+	top: -135vh;
+}
+
+.peru-animation {
+	animation-name: moveLeft;
+    animation-duration: 5s;
+}
+
+@keyframes moveLeft {
+	from {right:-25vw;}
+	to {right:52vw;}
+}

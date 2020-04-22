@@ -1,0 +1,315 @@
+#header {
+    height: 5vh;
+    width: 100%;
+    text-align: center;
+    display: flex;    
+    background-color: burlywood;
+    border-bottom: 3px solid blueviolet;
+    
+}
+
+#welcome {
+    height: 100%;
+    width: 45%;
+    margin: auto;
+    font-size: 4vh;
+    margin-right: 0px;
+}
+
+#userName {
+    height: 100%;
+    width: 10%;
+    margin: auto;
+    margin-left: 2px;
+    text-align: left;
+    color: rgb(11, 11, 173);
+    /* border: 2px double blueviolet; */
+}
+
+#logContainer {
+    height: 100%;
+    width: 60%;
+    margin: auto;
+    border: 1px solid black;
+    display: flex;
+}
+
+#gameLogLabel {
+    width: 30%;
+    height: 100%;
+    margin: 0px;
+    /* padding-left: 5px; */
+    background-color: chocolate;
+    border: 1px double black;
+}
+#gameLog {
+    width: 90%;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-top: 2px;
+    padding-left: 5px;
+    height: 90%;
+    overflow-y: scroll;
+    background-color: lightgrey;
+    z-index: 9999999;
+}
+
+#gameLogButton {
+    margin: 0px;
+    height: 95%;
+    position: relative;
+    top: 0.1vh;
+}
+
+#gameLogCaret {
+    /* height: 100%; */
+    font-size: 10vh;
+}
+
+
+
+
+
+
+
+.main{
+    height: 86vh;
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    background-image: url('/img/wood-pattern.png');
+    background-repeat: repeat;
+    background-color: #4d0000;
+}
+
+.main-row-outer {
+    height: 15%;
+    /* border: 1px solid blue; */
+    display: flex;
+    flex-direction: row;
+}
+
+.main-row-center {
+    height: 70%;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: row;
+}
+
+.main-row-cell {
+    /* border: 1px solid red; */
+    width: 11%;
+}
+
+.main-row-cell-corner {
+    /* border: 1px solid red; */
+    width: 15%;
+}
+
+.main-row-cell-player {
+    /* border: 1px solid red; */
+    width: 16%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.main-col {
+    width: 15%; 
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-col-cell{
+    /* border: 1px solid red; */
+    height: 33.33%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.table {
+    width: 70%; 
+    background-image: radial-gradient(lightgreen, darkgreen);
+    border: 2vh solid wheat;
+    border-radius: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.table-row {
+    height: 20%;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: row;
+}
+
+.table-col {
+    width: 33.33%;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+}
+
+.table-cell {
+    height: 100%;
+    /* border: 1px solid red; */
+}
+
+.table-cell-center {
+    height: 100%;
+    /* width: 20%; */
+    /* border: 1px solid red; */
+    /* justify-content: flex-end; */
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.bet {
+    align-items: center;
+    border: 1px solid white;
+    border-radius: 5px;
+    justify-content: center;
+    height: 33%;
+    color: wheat;
+    font-size: 3vh; 
+}
+
+.bet-dummy {
+    align-items: center;
+    justify-content: center;
+    height: 33%;
+    color: wheat;
+    font-size: 3vh; 
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: right;
+    align-items: center;
+    visibility: hidden;
+}
+.user-info-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    align-items: center;
+    visibility: hidden;
+}
+
+.user-info p {
+    align-items: center;
+    height: 50%;
+    margin: 0px;
+    font-size: 3vh; 
+    color: yellow;
+    text-align: right;
+    /* border: 1px solid black; */
+}
+
+.user-info-center p {
+    align-items: center;
+    justify-content: flex-end; 
+    height: 50%;
+    margin: 0px;
+    font-size: 3vh; 
+    color: yellow;
+    /* border: 1px solid black; */
+}
+
+.user-info-container {
+    height: 10vh;
+    width: 12vh;
+    display: flex;
+    flex-direction: column;
+    border: 7px solid;
+    border-color:  lime;    
+    border-radius: 80%;
+    background-color: rgb(216, 205, 205);
+    visibility: hidden;
+}
+
+.user-info-container p {
+    align-items: center;
+    text-align: center;
+    height: 50%;
+    margin: 0px;
+    margin-top: 5px;
+    font-size: 3.5vh; 
+    color:black;
+}
+
+.user-cards {
+    display: flex;
+    visibility: hidden;
+    /* display: inline-block;
+    margin-bottom: 15px; */
+    /* flex-direction: row;
+    align-items: flex-start;
+    justify-content: center; */
+}
+
+.dummy {
+    width: 60%;
+    /* border: 1px solid red; */
+}
+
+.cards {
+    height: 12.5vh;
+    width: 8.5vh;
+    line-height: 100%;
+    font-size: 12.5vh;
+    text-align: center;
+    background: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 0.1vw;
+    visibility: hidden;
+}
+
+.game-buttons {
+    visibility: hidden;
+}
+
+
+
+
+
+#menu {
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    border: 2px solid darkslategrey;
+    background-color: lightgrey;
+}
+
+.menu-item {
+    width: 20%;
+    text-align: center;
+}
+
+.game-buttons input, button{
+    border: 1px solid black;
+    height: 4vh;
+    margin: auto;
+    position: relative;
+    top: -0.5vh;
+}
+
+#currentHand {
+    width: 60%;
+    text-align: center;
+}
+
+#allInButton {
+    color: black; 
+    background-color:red;
+}

@@ -1,0 +1,198 @@
+
+
+let users = [];
+
+const getAllUsers = () => {
+    return users;
+};
+
+const setAllUsers = (newUsers) => {
+    users = newUsers;
+};
+
+const getConnectedUsers = () => {
+    return users.filter(user => user.status === 'connected');
+};
+
+const getActivePlayers = () => {
+    return users.filter(user => 
+        user.status === 'connected'
+        && user.hasCards);
+};
+
+const getPlayingUsers = () => {
+    return users.filter(user => 
+        user.status === 'connected' 
+        && user.stack > 0);
+};
+
+const getBettingPlayers = () => {
+    return users.filter(user => 
+        //user.status === 'connected' &&
+        user.hasCards &&
+        user.stack > 0);
+};
+
+const getDealer = () => {
+    return users.find(player => player.isDealer);     
+};
+
+const getNextDealer = () => {
+    const dealerIdx = users.findIndex(player => player.isDealer);
+    for(let i=0; i<users.length; i++) {
+        const thisUser = users[(dealerIdx+i+1)%users.length];
+        if(thisUser.stack) {
+            return thisUser;
+        }
+    }
+    console.log('somethis gone WRONG.');
+};
+
+const getNextToDealer = () => {
+    const connectedUsers = getConnectedUsers();
+    const dealerIdx = connectedUsers.findIndex(player => player.isDealer);
+    for(let i=0; i<connectedUsers.length; i++) {
+        if(connectedUsers[(dealerIdx+i+1)%connectedUsers.length].hasCards) {
+            return connectedUsers[(dealerIdx+i+1)%connectedUsers.length];
+        }
+    }
+    console.log('somethis gone WRONG.');
+};
+
+const getNewFirstDealer = () => {
+    const connectedUsers = getConnectedUsers();
+    const dealerIdx = connectedUsers.findIndex(player => player.isDealer);
+    for(let i=0; i<connectedUsers.length; i++) {
+        if(connectedUsers[(dealerIdx+i+1)%connectedUsers.length].stack > 0) {
+            return connectedUsers[(dealerIdx+i+1)%connectedUsers.length];
+        }
+    }
+    console.log('something gone WRONG.');
+};
+
+
+const addUser = (user) => {
+    users.push({
+        userName: user.userName,
+        id: user.id,
+        status: 'connected',
+        stack: 150,
+        hasCards: false,
+        isDealer: false,
+        isAllIn: false,
+        acting: false,
+        roundBet: 0,
+        sidePot: 0,
+        acted: false,
+        folded: false,
+        currentHand: []
+
+    });
+    console.log('Added a user. Number of connected user is now: ', users.filter(user => user.status === 'connected').length);
+};
+
+const getUsersPublicData = () => {    
+    return users.map(user => {
+        return {
+            userName: user.userName,
+            status: user.status,
+            stack: user.stack,
+            hasCards: user.hasCards,
+            isDealer: user.isDealer,
+            isAllIn: user.isAllIn,
+            acting: user.acting,
+            roundBet: user.roundBet,
+            sidePot: user.sidePot,
+            acted: user.acted,
+            folded: user.folded,
+        };
+    });
+};
+
+const getUsersShowdownData = () => {    
+    return getAllUsers().map(user => {
+        return {
+            userName: user.userName,
+            stack: user.stack,
+            status: user.status,
+            hasCards: user.hasCards,
+            isDealer: user.isDealer,
+            currentHand: user.currentHand
+        };
+    });
+};
+
+const removeUser = (nameToRemove) => {
+    let idToRemove = '';
+    for(const [idx, user] of users.entries()) {
+        if(user.userName === nameToRemove) {
+            idToRemove = user.id;
+            users.splice(idx, 1);
+            break;
+        }
+    }
+    return idToRemove;
+};
+
+const disconnectUser = (userId) => {
+    for (let i=0; i<users.length; i++) {
+        if (users[i].id === userId) {
+            users[i].status = 'disconnected';
+            console.log('updated status to disconnected');
+        }
+    }
+    console.log('Removed a user. Number of connected user is now: ', users.filter(user => user.status === 'connected').length);
+};
+
+const getUserFromId = (userId) => {
+    return users.find(user => user.id === userId)
+};
+
+
+const connectUser = (newUser) => {
+    const exsitingUser = users.find(user => user.userName === newUser.userName);
+    if(!exsitingUser) {
+        console.log('This is a new user, pushing in.')
+        addUser(newUser);
+    } else if (exsitingUser.status === 'connected'){
+        return 'user is connected';
+    } else {
+        console.log('reconnecting user');
+        exsitingUser.id = newUser.id;
+        exsitingUser.status = 'connected';
+    }
+};
+
+const resetUsersState = () => {        //reserring the users state in the beginning of a new hand
+    users.forEach(user => {
+        user.hasCards = false;
+        user.isAllIn = false;
+        user.acting = false,
+        user.roundBet = 0,
+        user.sidePot = 0,
+        user.acted = false,
+        user.folded = false,        
+        user.currentHand = [];
+    })
+}
+
+module.exports = {
+    getAllUsers,
+    setAllUsers,
+    getConnectedUsers,
+    getPlayingUsers,
+    getActivePlayers,
+    getBettingPlayers,
+    getUsersPublicData,
+    getUsersShowdownData,
+    getDealer,
+    getNextDealer,
+    getNextToDealer,
+    getNewFirstDealer,
+    addUser,
+    removeUser,
+    disconnectUser,
+    getUserFromId,
+    connectUser,
+    resetUsersState
+};

@@ -1,0 +1,41 @@
+const gameVars = require('../../../server-script/game/game-variables');
+const allIn    = require('../../../server-script/game/all-in');        
+const users    = require('../../../server-script/users/users');
+const deal     = require('../../../server-script/cards/deal');
+const hand     = require('../../../server-script/cards/hand-eval');
+        
+const everyoneAllIn = (io) => {
+    let connectedUsers = users.getConnectedUsers();
+    //let bettingPot = gameVars.bettingPot.get();
+    const deckObj = gameVars.gameDeckObj.get();
+    let commCards = gameVars.commCards.get();
+    let msg = '';
+
+    //Deal the rest of the community cards if needed
+    if(commCards.length < 5) {
+        commCards = commCards.concat(deal.dealNCards(deckObj, 5-commCards.length));
+        connectedUsers.forEach(user => {
+            if(user.hasCards) {
+                const evaledHand = hand.evaluateHand(user.currentHand.concat(commCards));
+                console.log(`${user.userName}'s hand is ${evaledHand.string}`);
+                io.to(user.id).emit('dealing community cards', {commCards, evaledHand: evaledHand.string});        
+            } else {
+                io.to(user.id).emit('dealing community cards', {commCards, evaledHand: undefined});
+            }
+        });
+        msg = `Dealing the rest of community cards`;  
+        io.emit('updating users', {users: users.getUsersPublicData(), handPot: gameVars.handPot.get(), msg});
+        gameVars.commCards.set(commCards);
+    }
+    
+
+    //Move the round all-in's to the hand all-in's and disperse the hand pot to the side pots 
+    allIn.updatePotsAndQues();
+    
+    //Award the winnings
+    msg = allIn.awardAllPots([], gameVars.handPot.get());
+    io.emit('updating users', {users: users.getUsersShowdownData(), handPot: gameVars.handPot.get(), msg});
+};
+
+module.exports = everyoneAllIn;
+        

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/ssp-icon.png">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/animation.css">
+    <title>Silver Street Poker - {{username}}</title>
+</head>
+<body>
+    <div id="header">
+        <p id="welcome">Welcome to the Silver Street Poker,</p>
+        <p id="userName">{{username}}</p>
+        <div id="logContainer">
+                <div id="gameLogLabel">Game Log:</div>
+                <div id="gameLog" ></div>
+                <button  id="gameLogButton" onclick="expandGameLog()">
+                    <i id="gameLogCaret" class="fa fa fa-toggle-down" style="font-size: 3vh;"></i>
+                </button>
+        </div>    
+    </div>
+    <div class="main"> 
+        <div class="main-row-outer" id="top-row">
+            <div class="main-row-cell-corner"></div>
+            <div class="main-row-cell-player">
+                <div class="user-info-container" id="user3infocont">
+                    <p id="user3name">User3</p>
+                    <p id="user3stack">150$</p>
+                </div>                
+            </div>
+            <div class="main-row-cell"></div>
+            <div class="main-row-cell-player">
+                <div class="user-info-container" id="user4infocont">
+                    <p id="user4name">User4</p>
+                    <p id="user4stack">150$</p>
+                </div>
+
+            </div>
+            <div class="main-row-cell"></div>
+            <div class="main-row-cell-player">
+                <div class="user-info-container" id="user5infocont">
+                    <p id="user5name">User5</p>
+                    <p id="user5stack">150$</p>
+                </div>
+            </div>
+            <div class="main-row-cell-corner"></div>
+        </div>       
+        <div class="main-row-center" id="mid-row">
+            <div class="main-col">
+                <div class="main-col-cell"></div>
+                <div class="main-col-cell">
+                    <div class="user-info-container" id="user2infocont">
+                        <p id="user2name">User2</p>
+                        <p id="user2stack">150$</p>
+                    </div>
+                </div>
+                <div class="main-col-cell"></div>
+            </div>
+            <div class="table">
+                <div class="table-row" id="top-row">
+                    <div class="table-col cards-container">
+                        <div class="table-cell user-info" >
+                            <p id="user3dealer">User3</p>
+                        </div>
+                        <div class="table-cell dummy"></div>
+                        <div class="table-cell cards-container">
+                            <div class="cards user-cards" id="user3H1"></div>
+                            <div class="cards user-cards" id="user3H2"></div>                    
+                        </div>
+                        <div class="table-cell bet-dummy"></div>
+                        <div class="table-cell bet" id="user3Bet">150$</div>
+                        <div class="table-cell bet-dummy"></div>
+                        <div class="table-cell dummy"></div>
+                    </div>
+                    <div class="table-col cards-container">
+                        <div class="table-cell-center dummy"></div>
+                        <div class="table-cell-center user-info-center">
+                            <p id="user4dealer">User4</p>
+                        </div>   
+                        <div class="table-cell-center cards-container">
+                            <div class="cards" id="user4H1"></div>
+                            <div class="cards" id="user4H2"></div>
+                        </div>     
+                        <div class="table-cell bet-dummy"></div>
+                        <div class="table-cell bet" id="user4Bet">150$</div>
+                        <div class="table-cell bet-dummy"></div>
+                        <div class="table-cell dummy"></div>
+                    </div>
+                    <div class="table-col cards-container">
+                        <div class="table-cell dummy"></div>
+                        <div class="table-cell bet-dummy"></div>
+                        <div class="table-cell bet" id="user5Bet">150$</div>
+                        <div class="table-cell bet-dummy"></div>
+                        <div class="table-cell cards-container">
+                            <div class="cards user-cards" id="user5H1"></div>
+                            <div class="cards user-cards" id="user5H2"></div>                    
+                        </div>
+                        <div class="table-cell dummy"></div>
+                        <div class="table-cell user-info">
+                            <p id="user5dealer">User5</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-row" id="top-gap-row"></div>
+                <div class="table-row" id="middle-row"> 
+                    <div class="table-col cards-container">
+                        <div class="table-cell user-info">
+                            <p id="user2dealer">User2</p>
+                        </div>
+                        <div class="table-cell cards-container">
+                            <div class="cards user-cards" id="user2H1"></div>
+                            <div class="cards user-cards" id="user2H2"></div>                    
+                        </div>
+                        <div class="table-cell bet-dummy"></div>
+                        <div class="table-cell bet" id="user2Bet">150$</div>
+                        <div class="table-cell bet-dummy"></div>
+                        <div class="table-cell dummy"></div>
+                        <div class="table-cell dummy"></div>
+                    </div>
+                    <div class="table-col cards-container" >
+                        <div class="cards" id="F1"></div>
+                        <div class="cards" id="F2"></div>
+                        <div class="cards" id="F3"></div>
+                        <div class="cards" id="T"></div>
+                        <div class="cards" id="R"></div>
+                    </div>
+                    <div class="table-col cards-container">
+                        <div class="table-cell dummy"></div>
+                        <div class="table-cell bet-dummy"></div>
+                        <div class="table-cell bet" id="user6Bet">150$</div>
+                        <div class="table-cell bet-dummy"></div>
+                        <div class="table-cell cards-container">
+                            <div class="cards user-cards" id="user6H1"></div>
+                            <div class="cards user-cards" id="user6H2"></div>                    
+                        </div>
+                        <div class="table-cell user-info">
+                            <p id="user6dealer">User6</p>
+                        </div>
+                    </div>           
+                </div>
+                <div class="table-row" id="bottom-gap-row">
+                    <div class="table-col cards-container"></div>
+                    <div class="table-col cards-container">
+                        <div class="table-cell dummy"></div>
+                        <div class="table-cell bet-dummy"></div>
+                        <div class="table-cell bet" id="handPot">0$</div>
+                        <div class="table-cell bet-dummy"></div>
+                        <div class="table-cell dummy"></div>                    
+                    </div>
+                    <div class="table-col cards-container"></div>
+                </div>
+                <div class="table-row" id="bottom-row">
+                    <div class="table-col cards-container">
+                        <div class="table-cell user-info">
+                            <p id="user1dealer">User1</p>
+                        </div>
+                        <div class="table-cell dummy"></div>
+                        <div class="table-cell cards-container">
+                            <div class="cards user-cards" id="user1H1"></div>
+                            <div class="cards user-cards" id="user1H2"></div>                    
+                        </div>
+                        <div class="table-cell bet-dummy"></div>
+                        <div class="table-cell bet" id="user1Bet">150$</div>
+                        <div class="table-cell bet-dummy"></div>
+                        <div class="table-cell dummy"></div>
+                    </div>
+                    <div class="table-col cards-container">
+                        <div class="table-cell-center dummy"></div>
+                        <div class="table-cell-center user-info-center">
+                            <p id="user0dealer">You</p>
+                        </div>   
+                        <div class="table-cell-center cards-container">
+                            <div class="cards" id="H1"></div>
+                            <div class="cards" id="H2"></div>
+                        </div>     
+                        <div class="table-cell bet-dummy"></div>
+                        <div class="table-cell bet" id="user0Bet">150$</div>
+                        <div class="table-cell bet-dummy"></div>
+                        <div class="table-cell dummy"></div>            
+                    </div>
+                    <div class="table-col cards-container">
+                        <div class="table-cell dummy"></div>
+                        <div class="table-cell bet-dummy"></div>
+                        <div class="table-cell bet" id="user7Bet">150$</div>
+                        <div class="table-cell bet-dummy"></div>
+                        <div class="table-cell cards-container">
+                            <div class="cards user-cards" id="user7H1"></div>
+                            <div class="cards user-cards" id="user7H2"></div>                    
+                        </div>
+                        <div class="table-cell dummy"></div>
+                        <div class="table-cell user-info">
+                            <p id="user7dealer">User7</p>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+            <div class="main-col">
+                <div class="main-col-cell"></div>
+                <div class="main-col-cell">
+                    <div class="user-info-container" id="user6infocont">
+                        <p id="user6name">User6</p>
+                        <p id="user6stack">150$</p>
+                    </div>
+                </div>
+                <div class="main-col-cell"></div>
+            </div>
+        </div>       
+
+        <div class="main-row-outer" id="bot-row">
+            <div class="main-row-cell-corner"></div>
+            <div class="main-row-cell-player">
+                <div class="user-info-container" id="user1infocont">
+                    <p id="user1name">User1</p>
+                    <p id="user1stack">150$</p>
+                </div>                
+            </div>
+            <div class="main-row-cell"></div>
+            <div class="main-row-cell-player">
+                <div class="user-info-container" id="user0infocont">
+                    <p id="user0name">You</p>
+                    <p id="user0stack" >150$</p>                
+                </div>
+
+            </div>
+            <div class="main-row-cell"></div>
+            <div class="main-row-cell-player">
+                <div class="user-info-container" id="user7infocont">
+                    <p id="user7name">User7</p>
+                    <p id="user7stack">150$</p>                
+                </div>
+            </div>
+            <div class="main-row-cell-corner"></div>
+        </div>
+
+        
+    </div>
+        
+    <div id="menu">
+        <button type="button" id="playHandButton"  class="menu-item" onclick="playHand()">Play hand</button>
+        <div id="currentHand"></div>
+        <div class="menu-item game-buttons">
+            <p style="margin: auto;">
+                <input type="number" id="betAmount" style="width: 3vw;" step="5" >
+                <button type="button" id="betButton" style="color: green;" onclick="bet()">Bet</button>
+                <button type="button" id="foldButton" style="color: red;" onclick="fold()">Fold</button>
+                <button type="button" id="checkButton" style="color: royalblue;" onclick="checkCall()">Check</button>
+                <button type="button" id="allInButton"  onclick="allIn()">All in</button>
+            </p>
+        </div>
+    </div>
+
+    <div id="animation"></div>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/client-script/script.js"></script>
+        <script src="/client-script/user-data-elems.js"></script>
+        <script src="/client-script/render.js"></script>
+        <script src="/client-script/browser-css-selector.js" type="text/javascript"></script>
+        <script src="/client-script/game-intents.js"></script>
+        <script src="/client-script/animation.js"></script>
+</body>
+</html>
