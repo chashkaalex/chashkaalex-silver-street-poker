@@ -137,6 +137,10 @@ const removeUser = (nameToRemove) => {
 const rebuyUser = (name) => {
     for(const user of users) {
         if(user.userName === name) {
+            if(user.stack) {
+                console.log('You cannot rebuy a user that still has money');
+                return;
+            }
             user.stack = 75;
             break;
         }
