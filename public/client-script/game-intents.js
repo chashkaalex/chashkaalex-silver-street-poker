@@ -10,6 +10,14 @@ const playHand = () => {
     socket.emit('play hand', 'lets play a hand');
 };
 
+const betInput = document.getElementById('betAmount');
+betInput.addEventListener("keyup", (event) => {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+        bet();
+    }
+  });
+
 const fold = () => {
     console.log('player folded'); 
     thisUser.holecards = ['', ''];
@@ -20,13 +28,16 @@ const fold = () => {
 const checkCall = () => {
     console.log('player called/checked'); 
     gameBtns.forEach(btn => btn.style.visibility = 'hidden');
-    if(thisUser.topBet - thisUser.bet >= thisUser.stack) {
+    const newBet = thisUser.topBet - thisUser.bet;
+    if(newBet >= thisUser.stack) {
         socket.emit('player acted', {act: 'all in', bet: thisUser.stack, raise: false}); //all in with less money 
     } else if(thisUser.topBet === 0) {
         socket.emit('player acted', {act: 'check', bet: 0, name: thisUserName, raise: false});
-    }
-    else {
-        socket.emit('player acted', {act: 'call', bet: thisUser.topBet - thisUser.bet, name: thisUserName, raise: false});
+    } else {    //just a simple call
+        if(newBet > 5 && !confirm(`This means betting ${newBet}$. Sure?`)) {
+            return;           
+        } 
+        socket.emit('player acted', {act: 'call', bet: newBet, name: thisUserName, raise: false});        
     }
 };
 
@@ -42,9 +53,11 @@ const bet = () => {
         alert('You cannot bet this amount, you do not have that kind of money');
     } else if (theBet === thisUser.stack) {
         gameBtns.forEach(btn => btn.style.visibility = 'hidden');
+        document.getElementById('betAmount').value = '';
         socket.emit('player acted', {act: 'all in', bet: theBet, name: thisUserName, raise: theBet > thisUser.topBet});
     } else if (theBet === (thisUser.topBet - thisUser.bet)) {
         gameBtns.forEach(btn => btn.style.visibility = 'hidden');
+        document.getElementById('betAmount').value = '';
         socket.emit('player acted', {act: 'call', bet: theBet, name: thisUserName, raise: false});
     } else {
         gameBtns.forEach(btn => btn.style.visibility = 'hidden');

@@ -11,7 +11,6 @@ const foldAction = (io, socket) => {
     let activePlayers = users.getActivePlayers();
     let bettingPlayers = users.getBettingPlayers();
     const thisPlayer = activePlayers.find(player => player.id === socket.id);
-    // let bettingPot = gameVars.bettingPot.get();
     let foldCounter = gameVars.foldCounter.get();
     
     //Updating the counter and commencing Peru animation
@@ -33,15 +32,7 @@ const foldAction = (io, socket) => {
     bettingPlayers = users.getBettingPlayers();
     if(bettingPlayers.length === 1) {
         const last = bettingPlayers[0]
-        // let bettingPlayerActed = game.playerActed(last, bettingPot);
-        // let bettingPlayerBet = game.getPlayerBet(last, bettingPot);
         let maxBet = game.getMaxBet();
-        // if(bettingPlayerActed ||  bettingPlayerBet >= maxBet){                    
-        //     lastPlayer(io);
-        //     return false;
-        // }
-
-        //NEW WAY
         if(last.acted || last.roundBet === maxBet) {
             lastPlayer(io);
             return false;

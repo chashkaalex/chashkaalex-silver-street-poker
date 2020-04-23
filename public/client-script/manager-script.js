@@ -2,7 +2,7 @@ console.log('Client script loaded!');
 
 const socket = io();
 
-
+// General button functions
 const loadBackup = () => {
     console.log('Emitting load backup');
     socket.emit('load backup');
@@ -13,12 +13,17 @@ const toggleGameLock = () => {
     socket.emit('toggle game lock');
 };
 
-
 const tBody = document.getElementById('t-body');
 
+
+//User button functions
 const removeButton = document.createElement('button');
 removeButton.innerText = 'remove';
 removeButton.style.color = 'red';
+
+const rebuyButton = document.createElement('button');
+rebuyButton.innerText = 'rebuy';
+rebuyButton.style.color = 'green';
 
 
 
@@ -38,12 +43,20 @@ const manageSocketActions = () => {
                     thisRow.insertCell(6).innerHTML = user.roundBet;
                     const buttons = thisRow.insertCell(7);
                     removeClone =  removeButton.cloneNode(true);
-                    removeClone.onclick = function(event) {
-                        console.log(event.srcElement.parentElement.parentElement.firstChild.innerText);
+                    removeClone.onclick = (event) => {
+                        // console.log(event.srcElement.parentElement.parentElement.firstChild.innerText);
                         const rmUserName = event.srcElement.parentElement.parentElement.firstChild.innerText;
                         socket.emit('remove user', rmUserName);
                     }
                     buttons.appendChild(removeClone);     
+
+                    rebuyClone =  rebuyButton.cloneNode(true);
+                    rebuyClone.onclick = (event) => {
+                        // console.log(event.srcElement.parentElement.parentElement.firstChild.innerText);
+                        const rebuyUserName = event.srcElement.parentElement.parentElement.firstChild.innerText;
+                        socket.emit('rebuy user', rebuyUserName);
+                    }
+                    buttons.appendChild(rebuyClone);     
                 });
         });
 

@@ -134,6 +134,15 @@ const removeUser = (nameToRemove) => {
     return idToRemove;
 };
 
+const rebuyUser = (name) => {
+    for(const user of users) {
+        if(user.userName === name) {
+            user.stack = 75;
+            break;
+        }
+    }
+};
+
 const disconnectUser = (userId) => {
     for (let i=0; i<users.length; i++) {
         if (users[i].id === userId) {
@@ -191,6 +200,7 @@ module.exports = {
     getNewFirstDealer,
     addUser,
     removeUser,
+    rebuyUser,
     disconnectUser,
     getUserFromId,
     connectUser,

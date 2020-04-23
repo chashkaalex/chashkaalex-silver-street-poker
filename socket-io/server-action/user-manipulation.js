@@ -38,5 +38,16 @@ module.exports = function(io) {
                 return;
             }
           }); 
+
+          socket.on('rebuy user', (rebuyUserName) => {
+            if(socket.id === gameVars.managerSocket.get()) {
+                users.rebuyUser(rebuyUserName);
+            }
+            else {
+                console.log('Management hacking detected');
+                return;
+            }
+            io.emit('updating users', {users: users.getUsersPublicData(), handPot: gameVars.handPot.get()});
+          }); 
     });
 };

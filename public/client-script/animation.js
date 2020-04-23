@@ -23,8 +23,6 @@ const peruTrain = () => {
 	train.style.display = 'block';
 	train.classList.add('peru-animation');
 	setTimeout(function(){ 
-        // train.classList.remove('peru-animation');
-		// train.style.display = 'none';
         dest.innerText = '';
         dest.style.display = 'none';
 	}, 5000);

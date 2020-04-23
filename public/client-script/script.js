@@ -93,16 +93,19 @@ const socketActions = () => {
         socket.on('time to act', (msg) => {
             //Deal with right button names
             console.log(`Top bet is ${thisUser.topBet}, your bet is ${thisUser.bet}`);
+            const checkButton = document.getElementById('checkButton')
             if(thisUser.topBet > thisUser.bet) {
-                document.getElementById('checkButton').innerText = 'Call';
+                checkButton.innerText = 'Call';
             } else if(thisUser.topBet > thisUser.stack) {
-                document.getElementById('checkButton').style.visibility = 'hidden';
+                checkButton.style.visibility = 'hidden';
             } else {
-                document.getElementById('checkButton').innerText = 'Check';
+                checkButton.innerText = 'Check';
             }  
             gameBtns.forEach(btn => btn.style.display = 'block');
             gameBtns.forEach(btn => btn.style.visibility = 'visible');
-            //alert('It is your move!');   
+            //alert('It is your move!');  
+            checkButton.focus();
+            console.log(document.activeElement);
         });
 
 };
