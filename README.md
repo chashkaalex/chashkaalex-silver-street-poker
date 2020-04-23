@@ -24,7 +24,7 @@ Those just don't exist. Any player can bet any amount of his money. It can be le
 
 ##  Some very basic usage notes:
 You will need node.js (and npm) installed on your machine. 
-After you download the code, just run `node app.js` from the location of the files with your favorite shell. 
+After you download the code, just run `node app.js` from the location of the files with your favorite CLI. 
 The room will be immediatly accessible on your localhost:3000. Your friends can access it through a tunnel service (i.e. ngrok) or with the right port forwarding on your router - just through your ip or a ddns service provided url (we use noip, for example). 
 Sure, you can just deploy it on some webserver service like Heroku, but for the sake of just a game night for a few friends a local host will definitely suffice. 
 Additionally you can use a game manager menu. In order to do that you just have to login as gameManager and will get the menu instead of a regular room. The menu gives some basic backup capabilities, on option to remove an unwanted player and to lock the game (forbid new logins). Other capabilities (make a player fold, rebuy etc.) will be added, hopefully soon. 
