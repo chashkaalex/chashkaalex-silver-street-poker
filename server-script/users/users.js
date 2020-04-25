@@ -28,9 +28,9 @@ const getPlayingUsers = () => {
 
 const getBettingPlayers = () => {
     return users.filter(user => 
-        //user.status === 'connected' &&
         user.hasCards &&
-        user.stack > 0);
+        user.stack > 0 &&
+        !user.isAllIn);
 };
 
 const getDealer = () => {

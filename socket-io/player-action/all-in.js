@@ -27,15 +27,7 @@ const allInAction = (io, socket, bet) => {
     bettingPlayers = users.getBettingPlayers();
     if(bettingPlayers.length === 1) {
         const last = bettingPlayers[0]
-        // let bettingPlayerActed = game.playerActed(last, bettingPot);
-        // let bettingPlayerBet = game.getPlayerBet(last, bettingPot);
         let maxBet = game.getMaxBet();
-        // if(bettingPlayerActed ||  bettingPlayerBet >= maxBet){                    
-        //     lastPlayer(io);
-        //     return false;
-        // }
-
-        //NEW WAY
         if(last.acted || last.roundBet === maxBet) {
             lastPlayer(io);
             return false;

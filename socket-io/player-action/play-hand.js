@@ -71,20 +71,27 @@ module.exports = function(io) {
             
             //Reset pot and get blinds
             gameVars.handPot.set(0);        //resetting the hand pot
-            //const bettingPot = game.getNewPot(playingUsers);
             const dealer = users.getDealer();
-            //betting small blind
+            
+            //Betting small blind
             const smallBlind = gameVars.smallBlind.get();
+            const bigBlind = smallBlind*2
             let blindPlayer = game.getNextPlayerById(playingUsers, dealer.id);
-            blindPlayer.stack -= smallBlind;
-            blindPlayer.roundBet += smallBlind; //NEW WAY 
-            //game.putBlindBet(blindPlayer.userName, bettingPot, smallBlind);
-            //betting big blind
+            if(blindPlayer.stack > smallBlind) {
+                blindPlayer.stack -= smallBlind;
+                blindPlayer.roundBet += smallBlind; 
+            } else {
+                game.updateOnAllIn(blindPlayer, blindPlayer.stack)
+            }
+            
+            //Betting big blind
             blindPlayer = game.getNextPlayerById(playingUsers, blindPlayer.id);
-            blindPlayer.stack -= smallBlind*2;
-            blindPlayer.roundBet += smallBlind*2; //NEW WAY 
-            //game.putBlindBet(blindPlayer.userName, bettingPot, smallBlind*2);
-            //gameVars.bettingPot.set(bettingPot);    //updating the betting pot
+            if(blindPlayer.stack > bigBlind) {
+                blindPlayer.stack -= bigBlind;
+                blindPlayer.roundBet += bigBlind;
+            } else {
+                game.updateOnAllIn(blindPlayer, blindPlayer.stack)
+            }
             
             //deal hole cards
             playingUsers.forEach(user => {

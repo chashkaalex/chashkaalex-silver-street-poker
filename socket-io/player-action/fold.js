@@ -30,7 +30,7 @@ const foldAction = (io, socket) => {
     
     //Check if everyone folded except the winner, no showdown except all-ins
     bettingPlayers = users.getBettingPlayers();
-    if(bettingPlayers.length === 1) {
+    if(bettingPlayers.length <= 1) {
         const last = bettingPlayers[0]
         let maxBet = game.getMaxBet();
         if(last.acted || last.roundBet === maxBet) {

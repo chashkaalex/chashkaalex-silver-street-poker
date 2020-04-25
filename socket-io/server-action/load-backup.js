@@ -11,6 +11,7 @@ module.exports = function(io) {
                 //console.log(backup);
                 users.setAllUsers(backup);
                 users.resetUsersState();
+                gameVars.handIsRunning.set(false);
                 const handPot = gameVars.handPot.get();
                 io.emit('updating users', {users: users.getUsersPublicData(), handPot, msg: 'loading backup.'});
             } else {
