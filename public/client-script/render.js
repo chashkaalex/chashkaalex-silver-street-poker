@@ -1,6 +1,4 @@
 
-
-
 const wipeUsersData = () => {
     handPotElem.innerText = '';
     handPotElem.style.visibility = 'hidden';

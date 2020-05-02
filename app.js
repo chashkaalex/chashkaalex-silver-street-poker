@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 const http = require('http').createServer(app);
 //const io = require('socket.io')(http);
-const io = require('socket.io')(http, { pingInterval: 500 });
+const io = require('socket.io')(http, { pingInterval: 1500 });
 const hbs = require('hbs');
 
 const gameVars = require('./server-script/game/game-variables');
@@ -49,8 +49,8 @@ app.post('/submit-form', (req, res) => {
     } else if(gameVars.gamelock.get()) {
         gameVars.landingMessage.set('The game was locked by the game manager.');
         res.redirect('/');
-    } else if (users.getAllUsers().length > 7) {
-        gameVars.landingMessage.set('Game quota is full, talk to the game manager..');
+    } else if (users.getAllUsers().length > 7 && !users.getAllUsers().map(user => user.userName).includes(username)) {
+        gameVars.landingMessage.set('Game quota is full, talk to the game manager.');
         res.redirect('/');
     } else {
       res.redirect('../theGame');

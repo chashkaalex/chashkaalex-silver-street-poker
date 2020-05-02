@@ -1,4 +1,4 @@
-const playHandButton = document.getElementById('playHandButton');
+
 const playHand = () => {
     if(playersNum < 2){
         alert('You cannot play alone, wait untill someone else enters.');
@@ -27,7 +27,6 @@ const fold = () => {
 
 const checkCall = () => {
     console.log('player called/checked'); 
-    gameBtns.forEach(btn => btn.style.visibility = 'hidden');
     const newBet = thisUser.topBet - thisUser.bet;
     if(newBet >= thisUser.stack) {
         socket.emit('player acted', {act: 'all in', bet: thisUser.stack, raise: false}); //all in with less money 
@@ -39,6 +38,7 @@ const checkCall = () => {
         } 
         socket.emit('player acted', {act: 'call', bet: newBet, name: thisUserName, raise: false});        
     }
+    gameBtns.forEach(btn => btn.style.visibility = 'hidden');
 };
 
 const bet = () => {

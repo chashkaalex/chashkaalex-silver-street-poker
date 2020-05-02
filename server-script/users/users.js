@@ -15,9 +15,9 @@ const getConnectedUsers = () => {
 };
 
 const getActivePlayers = () => {
-    return users.filter(user => 
-        user.status === 'connected'
-        && user.hasCards);
+    return users.filter(user => user.hasCards 
+        // && user.status === 'connected'
+        );
 };
 
 const getPlayingUsers = () => {

@@ -14,8 +14,7 @@ const getNextPlayerById = (players, thisPlayerId) => {
 
 const getMaxBet = () => {
     const activePlayers = users.getActivePlayers();
-    return Math.max(...activePlayers.map(player => player.roundBet));
-    
+    return Math.max(...activePlayers.map(player => player.roundBet));    
 }
 
 const updateOnRaise = (player) => {

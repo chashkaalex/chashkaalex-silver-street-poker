@@ -9,7 +9,8 @@ console.log('Captured the username:', thisUserName);
 
 //creating data object for the user
 const thisUser = {name: thisUserName, holecards: ['', ''], stack: 0, bet:0, topBet: 0};
-const gameBtns = Array.from(document.getElementsByClassName('game-buttons'));
+const playHandButton = document.getElementById('playHandButton');
+const gameBtns = Array.from(document.getElementById('game-buttons').children);
 const currentHandElem = document.getElementById('currentHand');
 
 const socket = io();
@@ -20,7 +21,6 @@ const socketActions = () => {
         //debugger;
         console.log('Server says: ', msg)
         console.log('Answer: my name is ', thisUserName);
-        playHandButton.style.display = 'block'
         socket.emit('send user name', thisUserName);
       });
       
@@ -105,10 +105,35 @@ const socketActions = () => {
             gameBtns.forEach(btn => btn.style.visibility = 'visible');
             //alert('It is your move!');  
             checkButton.focus();
-            console.log(document.activeElement);
         });
 
+        socket.on('lost the move', (msg) => {
+            //Hide game buttons
+            gameBtns.forEach(btn => btn.style.visibility = 'hidden');
+
+        });
+
+        socket.on('hand status', (obj) => {
+            const {status, commCards} = obj;
+            //Hide 'Play Hand' button if needed:
+            if(status) {
+                playHandButton.style.visibility = 'hidden';
+            } else {
+                onTableCards.forEach(elem => wipeElem(elem));
+                playHandButton.style.visibility = 'visible';
+            }
+            //Display community cards and hand evalution if needed:
+            commCards.forEach((card, idx) =>{
+                displayCard(commCardsElems[idx], card);     
+            });
+            // if(evaledHand) {
+            //     currentHandElem.innerText = evaledHand;
+            // } else {
+            //     currentHandElem.innerText = '';
+            // }
+        });
 };
+
 
 
 

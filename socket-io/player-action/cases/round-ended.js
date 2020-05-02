@@ -9,7 +9,6 @@ const roundEnded = (io) => {
 
     let connectedUsers = users.getConnectedUsers();
     let activePlayers = users.getActivePlayers();
-    //let bettingPot = gameVars.bettingPot.get();
     const deckObj = gameVars.gameDeckObj.get();
     let commCards = gameVars.commCards.get();
     let msg = '';

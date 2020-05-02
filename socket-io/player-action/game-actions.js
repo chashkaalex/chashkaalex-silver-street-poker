@@ -58,10 +58,7 @@ module.exports = function(io) {
                 thisPlayer.acting = false;
             }
 
-            //let bettingPot = gameVars.bettingPot.get();
             let handPot = gameVars.handPot.get();
-            //const deckObj = gameVars.gameDeckObj.get();
-            //let commCards = gameVars.commCards.get();
             let nextPlayer = game.getNextPlayerById(bettingPlayers, socket.id);
             let msg = ''; 
             
@@ -92,7 +89,6 @@ module.exports = function(io) {
                     thisPlayer.stack -= bet;
                     thisPlayer.roundBet += bet;     //NEW WAY
                     thisPlayer.acted = true;
-                    //game.putBet(thisPlayer.userName, bettingPot, bet);  //OLD WAY
                     if(bet === 0) {
                         //console.log('user checked');
                         msg = `${thisPlayer.userName}: check`;
@@ -104,13 +100,10 @@ module.exports = function(io) {
                     bettingPlayers = users.getBettingPlayers();
                     if(bettingPlayers.length === 1) {
                         const last = bettingPlayers[0];
-                        //let bettingPlayerActed = game.playerActed(bettingPlayers[0], bettingPot);
-                        // bettingPlayerBet = game.getPlayerBet(bettingPlayers[0], bettingPot);
-                        let maxBet = game.getMaxBet();
-                        if(last.acted ||  last.roundBet === maxBet){                    
+                        const maxBet = game.getMaxBet();
+                        if(last.acted || last.roundBet === maxBet){                    
                             lastPlayer(io);
                             //Reset the betting pot and do last renders:
-                            //bettingPot = game.getNewPot(activePlayers);
                             io.emit('updating users', {users: users.getUsersPublicData(), handPot: gameVars.handPot.get(), msg});
                             console.log('Rerendered on "last player" after bet'.yellow);
                             return;
@@ -126,16 +119,8 @@ module.exports = function(io) {
                     console.log('the hand has ended!');
                     return; 
                 }
-                //activePlayers = users.getActivePlayers();
-                // allUsers.forEach(player => {
-                //     handPot += player.roundBet;
-                //     player.roundBet = 0;
-                //     if(player.hasCards) {
-                //         player.acted = false;
-                //     }
-                // });
                 
-                //Updating all-in ques if necessary and moving the bets to hte hand pot:
+                //Updating all-in ques if necessary and moving the bets to the hand pot:
                 allIn.updatePotsAndQues()
                 handPot = gameVars.handPot.get();
                 io.emit('updating users', {users: users.getUsersPublicData(), handPot, msg: undefined});
@@ -145,9 +130,8 @@ module.exports = function(io) {
             } 
 
             //Setting game variables
-            //gameVars.bettingPot.set(bettingPot);
-            console.log('Updated hand pot: ', handPot);
-            gameVars.handPot.set(handPot);
+            // console.log('Updated hand pot: ', handPot);
+            // gameVars.handPot.set(handPot);
             nextPlayer.acting = true;
             console.log(`Next player is ${nextPlayer.userName}, handpot is ${handPot}`);
             io.emit('updating users', {users: users.getUsersPublicData(), handPot, msg});

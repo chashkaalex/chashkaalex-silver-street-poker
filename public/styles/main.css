@@ -275,12 +275,6 @@
     visibility: hidden;
 }
 
-.game-buttons {
-    visibility: hidden;
-}
-
-
-
 
 
 #menu {
@@ -292,20 +286,33 @@
 }
 
 .menu-item {
-    width: 20%;
+    width: 15%;
     text-align: center;
 }
 
-.game-buttons input, button{
-    border: 1px solid black;
-    height: 4vh;
-    margin: auto;
+#game-buttons {
+    visibility: hidden;
     position: relative;
-    top: -0.5vh;
+    top: -22vh;
+}
+#game-buttons p{
+    margin: 0px;
+    padding: 5px;
+    background-color: lightgrey;
+
+}
+
+.game-btn {
+    height: 6.5vh;
+    width: 14vh;
+    font-weight: bold;
+    font-size: 4.5vh;
+    border: 2px solid darkslategrey;
+    border-radius: 5px;
 }
 
 #currentHand {
-    width: 60%;
+    width: 70%;
     text-align: center;
 }
 

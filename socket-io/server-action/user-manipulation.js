@@ -1,5 +1,9 @@
 const users = require('../../server-script/users/users');
+const game = require('../../server-script/game/game');
 const gameVars = require('../../server-script/game/game-variables');
+const allIn = require('../../server-script/game/all-in');
+
+const roundEnded = require('../player-action/cases/round-ended');
 
 module.exports = function(io) {
     io.on('connection', (socket) => {
@@ -42,6 +46,54 @@ module.exports = function(io) {
           socket.on('rebuy user', (rebuyUserName) => {
             if(socket.id === gameVars.managerSocket.get()) {
                 users.rebuyUser(rebuyUserName);
+            }
+            else {
+                console.log('Management hacking detected');
+                return;
+            }
+            io.emit('updating users', {users: users.getUsersPublicData(), handPot: gameVars.handPot.get()});
+          }); 
+
+          socket.on('pass move on', () => {
+            if(socket.id === gameVars.managerSocket.get()) {
+                let actingUser  = users.getAllUsers().find(user => user.acting);
+                const bettingPlayers = users.getBettingPlayers();
+                const maxBet = game.getMaxBet();
+                let  handPot = gameVars.handPot.get();
+                let msg = `${actingUser.userName}: `;
+                if(actingUser.roundBet >= maxBet) {
+                    //check
+                    actingUser.acted = true;
+                    msg += 'check';                    
+                } else {
+                    //fold
+                    game.updateOnFold(actingUser);
+                    msg += 'fold'; 
+                }
+                
+                actingUser.acting = false;
+                io.to(actingUser.id).emit('lost the move', '');
+                
+                if (game.roundEndCheck()) {  
+                    console.log('betting round is complete');
+                    if(!roundEnded(io)) { 
+                        console.log('the hand has ended!');
+                        return; 
+                    }
+                    
+                    //Updating all-in ques if necessary and moving the bets to the hand pot:
+                    allIn.updatePotsAndQues()
+                    handPot = gameVars.handPot.get();
+                    io.emit('updating users', {users: users.getUsersPublicData(), handPot, msg: undefined});
+                    console.log('Rerendered on round end'.yellow);
+                    console.log(`handpot is now ${handPot}`);
+                    actingUser = users.getNextToDealer();
+                } else {
+                    actingUser = game.getNextPlayerById(bettingPlayers, actingUser.id);
+                }
+                actingUser.acting = true;
+                io.emit('updating users', {users: users.getUsersPublicData(), handPot, msg});
+                io.to(actingUser.id).emit('time to act', `ACT`);
             }
             else {
                 console.log('Management hacking detected');

@@ -13,6 +13,11 @@ const toggleGameLock = () => {
     socket.emit('toggle game lock');
 };
 
+const passMoveOn = () => {
+    console.log('Emitting pass move on lock');
+    socket.emit('pass move on');
+};
+
 const tBody = document.getElementById('t-body');
 
 

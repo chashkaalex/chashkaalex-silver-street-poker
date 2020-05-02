@@ -240,14 +240,18 @@
     <div id="menu">
         <button type="button" id="playHandButton"  class="menu-item" onclick="playHand()">Play hand</button>
         <div id="currentHand"></div>
-        <div class="menu-item game-buttons">
-            <p style="margin: auto;">
-                <input type="number" id="betAmount" style="width: 3vw;" step="5">
-                <button type="button" id="betButton" style="color: green;" onclick="bet()">Bet</button>
-                <button type="button" id="foldButton" style="color: red;" onclick="fold()">Fold</button>
-                <button type="button" id="checkButton" style="color: royalblue;" onclick="checkCall()">Check</button>
-                <button type="button" id="allInButton"  onclick="allIn()">All in</button>
-            </p>
+        <div class="menu-item" id="game-buttons">
+                <p>
+                    <input type="number" class="game-btn" id="betAmount" min="0" step="5">
+                    <button type="button" class="game-btn" id="betButton" style="color: green;" onclick="bet()">Bet</button>
+                </p>
+                <p>
+                    <button type="button" class="game-btn" id="foldButton" style="color: red;" onclick="fold()">Fold</button>
+                   <button type="button" class="game-btn" id="checkButton" style="color: royalblue;" onclick="checkCall()">Check</button>
+                </p>
+                <p>
+                    <button type="button" class="game-btn" id="allInButton"  onclick="allIn()">All in</button>
+                </p>
         </div>
     </div>
 

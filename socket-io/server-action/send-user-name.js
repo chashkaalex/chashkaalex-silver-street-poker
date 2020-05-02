@@ -21,11 +21,13 @@ module.exports = function(io) {
             } else {
                 console.log(`${userName} is now connected`.green);
                 const msg = `Everyone, please, welcome ${userName}!`
+                const commCards = gameVars.commCards.get();
                 io.emit('updating users', {users: users.getUsersPublicData(), handPot, msg});
                 console.log('Rerendered on connection'.yellow);
                 const thisPlayer = users.getAllUsers().find(player => player.userName === userName);
+                io.to(thisPlayer.id).emit('hand status', {status: gameVars.handIsRunning.get(), commCards});
                 if(thisPlayer.hasCards) {
-                    const evaledHand = hand.evaluateHand(thisPlayer.currentHand);
+                    const evaledHand = hand.evaluateHand(thisPlayer.currentHand.concat(commCards));
                     io.to(thisPlayer.id).emit('dealing hole cards', {userHoleCards: thisPlayer.currentHand, evaledHand: evaledHand.string});
                     if(thisPlayer.acting) {
                         io.to(thisPlayer.id).emit('time to act', `ACT`);
