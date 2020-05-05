@@ -53,16 +53,15 @@ const roundEnded = (io) => {
             
             //Award the winnings
             msg = allIn.awardAllPots(activePlayers, gameVars.handPot.get());
-            io.emit('updating users', {users: users.getUsersShowdownData(), handPot: gameVars.handPot.get(), msg});
+            gameVars.showdown.set(true);
+            io.emit('updating users', {users: users.getPlayersData(), handPot: gameVars.handPot.get(), msg});
             gameVars.handIsRunning.set(false);
 
             return false;
     }
-    io.emit('updating users', {users: users.getUsersPublicData(), handPot: gameVars.handPot.get(), msg});
+    io.emit('updating users', {users: users.getPlayersData(), handPot: gameVars.handPot.get(), msg});
     console.log('Setting the game variables');
-    //gameVars.bettingPot.set(bettingPot);
     gameVars.gameDeckObj.set(deckObj);
-    // gameVars.handPot.set(handPot);
     gameVars.commCards.set(commCards);  
     return true;
 }

@@ -6,7 +6,6 @@ const hand     = require('../../../server-script/cards/hand-eval');
         
 const everyoneAllIn = (io) => {
     let connectedUsers = users.getConnectedUsers();
-    //let bettingPot = gameVars.bettingPot.get();
     const deckObj = gameVars.gameDeckObj.get();
     let commCards = gameVars.commCards.get();
     let msg = '';
@@ -24,7 +23,7 @@ const everyoneAllIn = (io) => {
             }
         });
         msg = `Dealing the rest of community cards`;  
-        io.emit('updating users', {users: users.getUsersPublicData(), handPot: gameVars.handPot.get(), msg});
+        io.emit('updating users', {users: users.getPlayersData(), handPot: gameVars.handPot.get(), msg});
         gameVars.commCards.set(commCards);
     }
     
@@ -34,7 +33,8 @@ const everyoneAllIn = (io) => {
     
     //Award the winnings
     msg = allIn.awardAllPots([], gameVars.handPot.get());
-    io.emit('updating users', {users: users.getUsersShowdownData(), handPot: gameVars.handPot.get(), msg});
+    gameVars.showdown.set(true);
+    io.emit('updating users', {users: users.getPlayersData(), handPot: gameVars.handPot.get(), msg});
 };
 
 module.exports = everyoneAllIn;

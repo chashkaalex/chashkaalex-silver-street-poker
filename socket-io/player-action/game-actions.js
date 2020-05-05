@@ -75,6 +75,7 @@ module.exports = function(io) {
                     proceed = foldAction(io, socket);
                     msg = `${thisPlayer.userName} folded`;
                     if(!proceed) {
+                        io.emit('updating users', {users: users.getPlayersData(), handPot: gameVars.handPot.get(), msg});
                         return;
                     }
                     break;
@@ -82,12 +83,13 @@ module.exports = function(io) {
                     proceed = allInAction(io, socket, bet);
                     msg = `${thisPlayer.userName}: All in, (${bet})!`;
                     if(!proceed) {
+                        io.emit('updating users', {users: users.getPlayersData(), handPot: gameVars.handPot.get(), msg});
                         return;
                     } 
                     break;
                 default:
                     thisPlayer.stack -= bet;
-                    thisPlayer.roundBet += bet;     //NEW WAY
+                    thisPlayer.roundBet += bet;     
                     thisPlayer.acted = true;
                     if(bet === 0) {
                         //console.log('user checked');
@@ -104,14 +106,13 @@ module.exports = function(io) {
                         if(last.acted || last.roundBet === maxBet){                    
                             lastPlayer(io);
                             //Reset the betting pot and do last renders:
-                            io.emit('updating users', {users: users.getUsersPublicData(), handPot: gameVars.handPot.get(), msg});
+                            io.emit('updating users', {users: users.getPlayersData(), handPot: gameVars.handPot.get(), msg});
                             console.log('Rerendered on "last player" after bet'.yellow);
                             return;
                         }
                     } 
                     break;
             }
-            //io.emit('updating users', {users: users.getUsersPublicData(), bettingPot, msg});
             
             if (game.roundEndCheck()) {  
                 console.log('betting round is complete');
@@ -123,7 +124,7 @@ module.exports = function(io) {
                 //Updating all-in ques if necessary and moving the bets to the hand pot:
                 allIn.updatePotsAndQues()
                 handPot = gameVars.handPot.get();
-                io.emit('updating users', {users: users.getUsersPublicData(), handPot, msg: undefined});
+                io.emit('updating users', {users: users.getPlayersData(), handPot, msg: undefined});
                 console.log('Rerendered on round end'.yellow);
                 console.log(`handpot is now ${handPot}`);
                 nextPlayer = users.getNextToDealer();
@@ -134,7 +135,7 @@ module.exports = function(io) {
             // gameVars.handPot.set(handPot);
             nextPlayer.acting = true;
             console.log(`Next player is ${nextPlayer.userName}, handpot is ${handPot}`);
-            io.emit('updating users', {users: users.getUsersPublicData(), handPot, msg});
+            io.emit('updating users', {users: users.getPlayersData(), handPot, msg});
             console.log('Rerendered on action end'.yellow);
             io.to(nextPlayer.id).emit('time to act', `ACT`);
         });    

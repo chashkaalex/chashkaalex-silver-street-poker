@@ -1,6 +1,7 @@
 const gameVars = require('../../server-script/game/game-variables');
 const game     = require('../../server-script/game/game');
 const users    = require('../../server-script/users/users');
+const allIn    = require('../../server-script/game/all-in');
 
 const foldAction = (io, socket) => {
     //Sub-modules
@@ -26,11 +27,28 @@ const foldAction = (io, socket) => {
 
     //Updating the data and active players object after fold 
     game.updateOnFold(thisPlayer);
-    activePlayers = users.getActivePlayers();      
+    activePlayers = users.getActivePlayers(); 
+    
+    //Check if there is only one player with cards
+    if(activePlayers.length === 1) {
+        //Award the pots:       
+        const winner = activePlayers[0]; 
+        if(winner.isAllIn) {
+            allIn.updatePotsAndQues();
+            msg = allIn.awardAllPots([], gameVars.handPot.get()); 
+        } else {
+            msg = allIn.awardAllPots([winner], gameVars.handPot.get());                    
+        }
+        console.log(`The winner is ${winner.userName}, the pot was ${gameVars.handPot.get()}, stack is now ${winner.stack}`);
+        gameVars.handIsRunning.set(false);
+        winner.isAllIn = false;
+        io.emit('updating users', {users: users.getPlayersData(), handPot: gameVars.handPot.get(), msg});
+        return false;
+    }
     
     //Check if everyone folded except the winner, no showdown except all-ins
     bettingPlayers = users.getBettingPlayers();
-    if(bettingPlayers.length <= 1) {
+    if(bettingPlayers.length === 1) {
         const last = bettingPlayers[0]
         let maxBet = game.getMaxBet();
         if(last.acted || last.roundBet === maxBet) {

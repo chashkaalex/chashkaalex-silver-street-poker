@@ -61,10 +61,11 @@
             <div class="table">
                 <div class="table-row" id="top-row">
                     <div class="table-col cards-container">
+                        <div class="table-cell dummy"></div>
                         <div class="table-cell user-info" >
+                            <p></p>
                             <p id="user3dealer">User3</p>
                         </div>
-                        <div class="table-cell dummy"></div>
                         <div class="table-cell cards-container">
                             <div class="cards user-cards" id="user3H1"></div>
                             <div class="cards user-cards" id="user3H2"></div>                    
@@ -97,10 +98,11 @@
                             <div class="cards user-cards" id="user5H1"></div>
                             <div class="cards user-cards" id="user5H2"></div>                    
                         </div>
-                        <div class="table-cell dummy"></div>
                         <div class="table-cell user-info">
+                            <p></p>
                             <p id="user5dealer">User5</p>
                         </div>
+                        <div class="table-cell dummy"></div>
                     </div>
                 </div>
                 <div class="table-row" id="top-gap-row"></div>
@@ -153,10 +155,10 @@
                 </div>
                 <div class="table-row" id="bottom-row">
                     <div class="table-col cards-container">
+                        <div class="table-cell dummy"></div>
                         <div class="table-cell user-info">
                             <p id="user1dealer">User1</p>
                         </div>
-                        <div class="table-cell dummy"></div>
                         <div class="table-cell cards-container">
                             <div class="cards user-cards" id="user1H1"></div>
                             <div class="cards user-cards" id="user1H2"></div>                    
@@ -189,10 +191,10 @@
                             <div class="cards user-cards" id="user7H1"></div>
                             <div class="cards user-cards" id="user7H2"></div>                    
                         </div>
-                        <div class="table-cell dummy"></div>
                         <div class="table-cell user-info">
                             <p id="user7dealer">User7</p>
                         </div>
+                        <div class="table-cell dummy"></div>
                     </div>
                 </div>                
             </div>
@@ -241,11 +243,11 @@
         <button type="button" id="playHandButton"  class="menu-item" onclick="playHand()">Play hand</button>
         <div id="currentHand"></div>
         <div class="menu-item" id="game-buttons">
-                <p>
-                    <input type="number" class="game-btn" id="betAmount" min="0" step="5">
+                <p id="bet-input">
+                    <input type="number" class="game-btn" id="betAmount" min="0" step="5" style="text-align:center;">
                     <button type="button" class="game-btn" id="betButton" style="color: green;" onclick="bet()">Bet</button>
                 </p>
-                <p>
+                <p id="fold-call">
                     <button type="button" class="game-btn" id="foldButton" style="color: red;" onclick="fold()">Fold</button>
                    <button type="button" class="game-btn" id="checkButton" style="color: royalblue;" onclick="checkCall()">Check</button>
                 </p>

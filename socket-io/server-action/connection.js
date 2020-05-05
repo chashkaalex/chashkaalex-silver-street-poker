@@ -16,7 +16,7 @@ module.exports = function(io) {
                     console.log(`${thisUser.userName} disconnected.`.red);
                 }
                 users.disconnectUser(socket.id);
-                io.emit('updating users', {users: users.getUsersPublicData(), handPot: gameVars.handPot.get()});
+                io.emit('updating users', {users: users.getPlayersData(), handPot: gameVars.handPot.get()});
             }
         });
     });

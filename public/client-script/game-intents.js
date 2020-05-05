@@ -89,3 +89,37 @@ const expandGameLog = () => {
         gameLog.style.height = '4.5vh';
     }
 };
+
+
+function updateGameBtnsPosition() {
+    const gamebuttonsCont = document.getElementById('game-buttons');
+    const windowPx = window.innerHeight;
+    const betInput = document.getElementById('bet-input');
+    const foldCall = document.getElementById('fold-call');
+    
+    let betContHeight = window.getComputedStyle(betInput).height;
+    betContHeight = betContHeight.slice(0,betContHeight.length-2);
+    betContHeight = 100*betContHeight/windowPx;
+
+    let foldCallHeight = window.getComputedStyle(foldCall).height;
+    foldCallHeight = foldCallHeight.slice(0,foldCallHeight.length-2);
+    foldCallHeight = 100*foldCallHeight/windowPx;
+
+    if(gameBtns.some(btn => window.getComputedStyle(btn).visibility === 'visible')) {
+        console.log('game buttons visible');
+        console.log(`buttons constainer height is ${betContHeight}`);
+        if(betContHeight + foldCallHeight > 20) {
+            gamebuttonsCont.style.top = '-35vh';
+            console.log('container pushed all the way up.');
+        } else if (betContHeight + foldCallHeight > 16) {
+            gamebuttonsCont.style.top = '-30vh';
+            console.log('container pushed half way up.');
+        } else {
+            gamebuttonsCont.style.top = '-25vh';
+            console.log('container is back down.');
+        }
+    }
+};
+
+window.onresize = updateGameBtnsPosition;
+window.onload = updateGameBtnsPosition;

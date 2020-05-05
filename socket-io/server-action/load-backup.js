@@ -13,7 +13,7 @@ module.exports = function(io) {
                 users.resetUsersState();
                 gameVars.handIsRunning.set(false);
                 const handPot = gameVars.handPot.get();
-                io.emit('updating users', {users: users.getUsersPublicData(), handPot, msg: 'loading backup.'});
+                io.emit('updating users', {users: users.getPlayersData(), handPot, msg: 'loading backup.'});
             } else {
                 console.log('There is no backup to use');
                 return;

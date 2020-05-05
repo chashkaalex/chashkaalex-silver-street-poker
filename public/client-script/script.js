@@ -10,7 +10,7 @@ console.log('Captured the username:', thisUserName);
 //creating data object for the user
 const thisUser = {name: thisUserName, holecards: ['', ''], stack: 0, bet:0, topBet: 0};
 const playHandButton = document.getElementById('playHandButton');
-const gameBtns = Array.from(document.getElementById('game-buttons').children);
+const gameBtns = Array.from(document.getElementsByClassName('game-btn'));
 const currentHandElem = document.getElementById('currentHand');
 
 const socket = io();
@@ -101,8 +101,8 @@ const socketActions = () => {
             } else {
                 checkButton.innerText = 'Check';
             }  
-            gameBtns.forEach(btn => btn.style.display = 'block');
             gameBtns.forEach(btn => btn.style.visibility = 'visible');
+            updateGameBtnsPosition();
             //alert('It is your move!');  
             checkButton.focus();
         });
@@ -122,15 +122,10 @@ const socketActions = () => {
                 onTableCards.forEach(elem => wipeElem(elem));
                 playHandButton.style.visibility = 'visible';
             }
-            //Display community cards and hand evalution if needed:
+            //Display community cards:
             commCards.forEach((card, idx) =>{
                 displayCard(commCardsElems[idx], card);     
             });
-            // if(evaledHand) {
-            //     currentHandElem.innerText = evaledHand;
-            // } else {
-            //     currentHandElem.innerText = '';
-            // }
         });
 };
 

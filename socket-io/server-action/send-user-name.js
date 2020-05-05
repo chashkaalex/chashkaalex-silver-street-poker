@@ -22,7 +22,7 @@ module.exports = function(io) {
                 console.log(`${userName} is now connected`.green);
                 const msg = `Everyone, please, welcome ${userName}!`
                 const commCards = gameVars.commCards.get();
-                io.emit('updating users', {users: users.getUsersPublicData(), handPot, msg});
+                io.emit('updating users', {users: users.getPlayersData(), handPot, msg});
                 console.log('Rerendered on connection'.yellow);
                 const thisPlayer = users.getAllUsers().find(player => player.userName === userName);
                 io.to(thisPlayer.id).emit('hand status', {status: gameVars.handIsRunning.get(), commCards});

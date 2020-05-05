@@ -20,7 +20,7 @@ module.exports = function(io) {
                     console.log('Name not found');
                 }
                 
-                io.emit('updating users', {users: users.getUsersPublicData(), handPot: gameVars.handPot.get()});
+                io.emit('updating users', {users: users.getPlayersData(), handPot: gameVars.handPot.get()});
             }
             else {
                 console.log('Management hacking detected');
@@ -51,11 +51,12 @@ module.exports = function(io) {
                 console.log('Management hacking detected');
                 return;
             }
-            io.emit('updating users', {users: users.getUsersPublicData(), handPot: gameVars.handPot.get()});
+            io.emit('updating users', {users: users.getPlayersData(), handPot: gameVars.handPot.get()});
           }); 
 
           socket.on('pass move on', () => {
-            if(socket.id === gameVars.managerSocket.get()) {
+            if(socket.id === gameVars.managerSocket.get()
+                && gameVars.handIsRunning.get()) {
                 let actingUser  = users.getAllUsers().find(user => user.acting);
                 const bettingPlayers = users.getBettingPlayers();
                 const maxBet = game.getMaxBet();
@@ -84,7 +85,7 @@ module.exports = function(io) {
                     //Updating all-in ques if necessary and moving the bets to the hand pot:
                     allIn.updatePotsAndQues()
                     handPot = gameVars.handPot.get();
-                    io.emit('updating users', {users: users.getUsersPublicData(), handPot, msg: undefined});
+                    io.emit('updating users', {users: users.getPlayersData(), handPot, msg: undefined});
                     console.log('Rerendered on round end'.yellow);
                     console.log(`handpot is now ${handPot}`);
                     actingUser = users.getNextToDealer();
@@ -92,14 +93,14 @@ module.exports = function(io) {
                     actingUser = game.getNextPlayerById(bettingPlayers, actingUser.id);
                 }
                 actingUser.acting = true;
-                io.emit('updating users', {users: users.getUsersPublicData(), handPot, msg});
+                io.emit('updating users', {users: users.getPlayersData(), handPot, msg});
                 io.to(actingUser.id).emit('time to act', `ACT`);
             }
             else {
                 console.log('Management hacking detected');
                 return;
             }
-            io.emit('updating users', {users: users.getUsersPublicData(), handPot: gameVars.handPot.get()});
+            io.emit('updating users', {users: users.getPlayersData(), handPot: gameVars.handPot.get()});
           }); 
     });
 };

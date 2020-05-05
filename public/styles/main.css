@@ -290,33 +290,42 @@
     text-align: center;
 }
 
+#playHandButton {
+    font-weight: bold;
+    font-size: 2.5vh;
+    border: 2px solid darkslategrey;
+}
+
 #game-buttons {
     visibility: hidden;
     position: relative;
-    top: -22vh;
+    top: -25vh;
 }
 #game-buttons p{
     margin: 0px;
     padding: 5px;
-    background-color: lightgrey;
+    background-color:  rgba(255,255,255,0);
 
 }
 
 .game-btn {
-    height: 6.5vh;
+    height: 6vh;
     width: 14vh;
     font-weight: bold;
-    font-size: 4.5vh;
+    font-size: 4vh;
     border: 2px solid darkslategrey;
     border-radius: 5px;
+    visibility: hidden;
 }
 
 #currentHand {
     width: 70%;
     text-align: center;
+    font-weight: bold;
 }
 
 #allInButton {
     color: black; 
     background-color:red;
+    width: 20vh;
 }

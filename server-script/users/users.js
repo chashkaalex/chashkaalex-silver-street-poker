@@ -1,4 +1,4 @@
-
+const gameVars = require('../game/game-variables');
 
 let users = [];
 
@@ -122,6 +122,15 @@ const getUsersShowdownData = () => {
     });
 };
 
+const getPlayersData = () => {
+    const showdown = gameVars.showdown.get();
+    if(showdown) {
+        return getUsersShowdownData();
+    } else {
+        return getUsersPublicData();
+    }
+};
+
 const removeUser = (nameToRemove) => {
     let idToRemove = '';
     for(const [idx, user] of users.entries()) {
@@ -198,6 +207,7 @@ module.exports = {
     getBettingPlayers,
     getUsersPublicData,
     getUsersShowdownData,
+    getPlayersData,
     getDealer,
     getNextDealer,
     getNextToDealer,

@@ -37,6 +37,9 @@ module.exports = function(io) {
             );
             console.log(`Created the backup. number of users is , ${gameVars.usersBackup.get().length}`.blue);
 
+            //Reset the showdown state:
+            gameVars.showdown.set(false);
+
             //Identify the acting player
             const thisPlayer = users.getUserFromId(socket.id);
             console.log(thisPlayer.userName.blue + ': ' + msg.magenta);
@@ -69,8 +72,9 @@ module.exports = function(io) {
                 console.log(`${playingUsers[0].userName} is now a dealer`);
             }
             
-            //Reset pot and get blinds
-            gameVars.handPot.set(0);        //resetting the hand pot
+            //Reset pot and put in a residue
+            gameVars.handPot.set(gameVars.potResidue.get());        //resetting the hand pot
+            gameVars.potResidue.set(0);
             const dealer = users.getDealer();
             
             //Betting small blind
@@ -106,7 +110,7 @@ module.exports = function(io) {
             //Rerendering screen and urging the user to act
             const actingPlayer = game.getNextPlayerById(playingUsers, blindPlayer.id);
             actingPlayer.acting = true;
-            io.emit('updating users', {users: users.getUsersPublicData(), handpot: gameVars.handPot.get(), msg: 'Dealing hole cards'});
+            io.emit('updating users', {users: users.getPlayersData(), handpot: gameVars.handPot.get(), msg: 'Dealing hole cards'});
             console.log('Rerendered on dealing hole cards'.yellow);
             io.to(actingPlayer.id).emit('time to act', `ACT`);  
         });   

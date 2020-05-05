@@ -2,6 +2,7 @@
 const wipeUsersData = () => {
     handPotElem.innerText = '';
     handPotElem.style.visibility = 'hidden';
+    console.log('Wiping user data');
     usersData.forEach(user => {
         user.bet.innerText = '';
         user.bet.style.visibility = 'hidden';
@@ -30,14 +31,12 @@ const updateGameLog = (gameLog) => {
 };
 
 const rerenderTableUsers = (users, handPot) => {
-    console.log(users);
-    console.log(handPot);
+    // console.log(users);
+    // console.log(handPot);
     const topBet = Math.max(...users.map(data => data.roundBet));
 
     users.forEach((user, idx) => {
-        console.log(user.userName, ':');
-        displayUserInfo(user, idx)
-        const userBet = user.roundBet;
+        displayUserInfo(user, idx);
         
         //Updating this user's data object const thisUser = {name: thisUserName, stack: 0, bet:0};
         if(idx === 0) {
@@ -55,8 +54,6 @@ const rerenderTableUsers = (users, handPot) => {
             handPotElem.style.visibility = 'visible';
             handPotElem.style.border = '4px solid gold';
             handPotElem.innerText = handPot + '$';
-        } else {
-            console.log('public pot is empty the cell will stay hidden')
         }
 
         usersData[idx].stack.style.visibility = 'visible';
@@ -73,10 +70,10 @@ const rerenderTableUsers = (users, handPot) => {
                 displayCard(usersData[idx].cards.h1, user.currentHand[0]);
                 displayCard(usersData[idx].cards.h2, user.currentHand[1]);
             } else {
-                usersData[idx].cards.h1.innerText = cardBack;
-                usersData[idx].cards.h1.style.color = 'darkblue'
-                usersData[idx].cards.h2.innerText = cardBack;
-                usersData[idx].cards.h2.style.color = 'darkblue'
+                for (let card in usersData[idx].cards) {
+                    usersData[idx].cards[card].innerText = cardBack;
+                    usersData[idx].cards[card].style.color = 'darkblue';
+                }
             }
         } 
     });

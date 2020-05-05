@@ -78,7 +78,7 @@ const getFirstDealer = () => {
 
 let potResidue = 0;
 const setPotResidue = (residue) => {
-    potResidue = residue
+    potResidue = residue;
 ;}
 
 const getPotResidue = () => {
@@ -101,6 +101,15 @@ const setHandIsRunning = (value) => {
 
 const getHandIsRunning = () => {
     return handIsRunning;
+};
+
+let showdown = false;
+const getShowdown = () => {
+    return showdown;
+};
+
+const setShowdown = (value) => {
+    showdown = value;
 };
 
 let landingMessage = 'Please input your name below';
@@ -153,6 +162,7 @@ module.exports = {
     potResidue : {set: setPotResidue, get: getPotResidue},
     foldCounter: {set: setFoldCounter, get: getFoldCounter},
     handIsRunning: {set: setHandIsRunning, get: getHandIsRunning},
+    showdown: {set: setShowdown, get: getShowdown},
     landingMessage: {set: setLandingMessage, get: getLandingMessage},
     usersBackup: {set: setUsersBackup, get: getUsersBackup},
     managerSocket: {get: getManagerSocket, set: setManagerSocket},

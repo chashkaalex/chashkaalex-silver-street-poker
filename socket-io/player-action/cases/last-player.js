@@ -11,16 +11,14 @@ const lastPlayer = (io) => {
     let connectedUsers = users.getConnectedUsers();
     let activePlayers = users.getActivePlayers();
     let bettingPlayers = users.getBettingPlayers();
-    //let bettingPot = gameVars.bettingPot.get();
     const deckObj = gameVars.gameDeckObj.get();
     let commCards = gameVars.commCards.get();
     let msg = '';
-    let showDown = false;
 
     allIn.updatePotsAndQues();                    
     const winner = bettingPlayers[0];
-    if(activePlayers.some(player => player.isAllIn)) {
-        showDown = true;
+    if(activePlayers.some(player => player.isAllIn) && activePlayers.length > 1) {
+        gameVars.showdown.set(true);
         //Deal the rest of the community cards
         if(commCards.length < 5) {
             commCards = commCards.concat(deal.dealNCards(deckObj, 5-commCards.length));
@@ -34,25 +32,19 @@ const lastPlayer = (io) => {
                 }
             });
             msg = `Dealing the rest of community cards`;  
-            io.emit('updating users', {users: users.getUsersPublicData(), handPot: gameVars.handPot.get(), msg});
+            io.emit('updating users', {users: users.getPlayersData(), handPot: gameVars.handPot.get(), msg});
             console.log('Rerendered on dealing the rest of community cards'.yellow);
             gameVars.commCards.set(commCards);
         }
     }
     
-    //Award the pots:
-    //msg = allIn.awardAllPots([winner], bettingPot.handPot);                    
+    //Award the pots:                   
     msg = allIn.awardAllPots([winner], gameVars.handPot.get());                    
     console.log(`The winner is ${winner.userName}, the pot was ${gameVars.handPot.get()}, stack is now ${winner.stack}`);
     gameVars.handIsRunning.set(false);
     
-    //Reset the betting pot and do last renders:
-    //bettingPot = game.getNewPot(activePlayers);
-    if(showDown) {
-        io.emit('updating users', {users: users.getUsersShowdownData(), handPot: gameVars.handPot.get(), msg});
-    } else {
-        io.emit('updating users', {users: users.getUsersPublicData(), handPot: gameVars.handPot.get(), msg});
-    }
+    //Render after awarding hte pots:
+    io.emit('updating users', {users: users.getPlayersData(), handPot: gameVars.handPot.get(), msg});
 }
 
 module.exports = lastPlayer;
