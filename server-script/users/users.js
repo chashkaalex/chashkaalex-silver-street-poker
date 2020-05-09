@@ -21,9 +21,7 @@ const getActivePlayers = () => {
 };
 
 const getPlayingUsers = () => {
-    return users.filter(user => 
-        user.status === 'connected' 
-        && user.stack > 0);
+    return users.filter(user => user.stack > 0);
 };
 
 const getBettingPlayers = () => {

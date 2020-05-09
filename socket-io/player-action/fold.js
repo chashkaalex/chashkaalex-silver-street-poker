@@ -33,8 +33,8 @@ const foldAction = (io, socket) => {
     if(activePlayers.length === 1) {
         //Award the pots:       
         const winner = activePlayers[0]; 
+        allIn.updatePotsAndQues();
         if(winner.isAllIn) {
-            allIn.updatePotsAndQues();
             msg = allIn.awardAllPots([], gameVars.handPot.get()); 
         } else {
             msg = allIn.awardAllPots([winner], gameVars.handPot.get());                    

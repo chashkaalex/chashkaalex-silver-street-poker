@@ -2,6 +2,7 @@ console.log('Client script loaded!');
 
 const gameLog = [];
 let playersNum = 0;
+let currentBigBlind = 0;
 
 //Saving the templated username in the client script
 const thisUserName = document.getElementById("userName").innerText;
@@ -44,6 +45,9 @@ const socketActions = () => {
                 console.log(msg);
                 if(msg.includes('Hand is ended.')){
                     playHandButton.style.visibility = 'visible';
+                } else if (msg === 'Dealing hole cards') {
+                    currentBigBlind = Math.max(...users.map(user => user.roundBet));
+                    console.log('Big blind bet is ', currentBigBlind);
                 }
                 gameLog.unshift(msg)
             } else {
@@ -62,6 +66,7 @@ const socketActions = () => {
             const {commCards, evaledHand} = obj;
             console.log('Server dealed community cards: ', commCards);
             commCards.forEach((card, idx) =>{
+                console.log('card name', Object.keys(card)[0]);
                 displayCard(commCardsElems[idx], card);     
             });
             if(evaledHand) {

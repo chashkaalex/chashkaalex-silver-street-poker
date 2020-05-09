@@ -115,7 +115,7 @@ module.exports = function(io) {
             }
             
             if (game.roundEndCheck()) {  
-                console.log('betting round is complete');
+                console.log('BETTING ROUND IS COMPLETE'.green);
                 if(!roundEnded(io)) { 
                     console.log('the hand has ended!');
                     return; 
@@ -134,7 +134,7 @@ module.exports = function(io) {
             // console.log('Updated hand pot: ', handPot);
             // gameVars.handPot.set(handPot);
             nextPlayer.acting = true;
-            console.log(`Next player is ${nextPlayer.userName}, handpot is ${handPot}`);
+            console.log(`Next player is ${nextPlayer.userName}`);
             io.emit('updating users', {users: users.getPlayersData(), handPot, msg});
             console.log('Rerendered on action end'.yellow);
             io.to(nextPlayer.id).emit('time to act', `ACT`);

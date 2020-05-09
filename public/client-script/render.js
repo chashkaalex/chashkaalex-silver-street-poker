@@ -4,19 +4,13 @@ const wipeUsersData = () => {
     handPotElem.style.visibility = 'hidden';
     console.log('Wiping user data');
     usersData.forEach(user => {
-        user.bet.innerText = '';
-        user.bet.style.visibility = 'hidden';
+        wipeElem(user.bet);
         user.infoCont.style.visibility = 'hidden';
-        user.cards.h1.innerText = '';
-        user.cards.h1.style.visibility = 'hidden'; 
-        user.cards.h2.innerText = '';
-        user.cards.h2.style.visibility = 'hidden'; 
-        user.name.innerText = '';
-        user.name.style.visibility = 'hidden'; 
-        user.stack.innerText = '';
-        user.stack.style.visibility = 'hidden';
-        user.dealer.innerText = '';
-        user.dealer.style.visibility = 'hidden';
+        wipeElem(user.cards.h1);
+        wipeElem(user.cards.h2);
+        wipeElem(user.name);
+        wipeElem(user.stack);
+        wipeElem(user.dealer);
     });
 };
 
@@ -34,6 +28,13 @@ const rerenderTableUsers = (users, handPot) => {
     // console.log(users);
     // console.log(handPot);
     const topBet = Math.max(...users.map(data => data.roundBet));
+    
+    if(handPot) {
+        console.log('Rerendering public pot');
+        handPotElem.style.visibility = 'visible';
+        handPotElem.style.border = '4px solid gold';
+        handPotElem.innerText = handPot + '$';
+    }
 
     users.forEach((user, idx) => {
         displayUserInfo(user, idx);
@@ -49,12 +50,6 @@ const rerenderTableUsers = (users, handPot) => {
         displayBet(user, usersData[idx].bet);
         
         
-        if(handPot) {
-            console.log('Rerendering public pot');
-            handPotElem.style.visibility = 'visible';
-            handPotElem.style.border = '4px solid gold';
-            handPotElem.innerText = handPot + '$';
-        }
 
         usersData[idx].stack.style.visibility = 'visible';
         usersData[idx].stack.innerText = user.stack + '$';
@@ -71,8 +66,9 @@ const rerenderTableUsers = (users, handPot) => {
                 displayCard(usersData[idx].cards.h2, user.currentHand[1]);
             } else {
                 for (let card in usersData[idx].cards) {
-                    usersData[idx].cards[card].innerText = cardBack;
-                    usersData[idx].cards[card].style.color = 'darkblue';
+                    usersData[idx].cards[card].style.backgroundImage = `url('/img/svg-cards/card_back.svg')`;
+                    // usersData[idx].cards[card].innerText = cardBack;
+                    // usersData[idx].cards[card].style.color = 'darkblue';
                 }
             }
         } 
@@ -99,12 +95,14 @@ const displayUserInfo = (user, idx) => {
 
 const displayCard = (elem, card) => {
     elem.style.visibility = 'visible';
-    elem.innerText = card.symbol;
-    if(card.suit === 'diamonds' || card.suit === 'hearts') {
-        elem.style.color = 'red';
-    } else {
-        elem.style.color = 'black';
-    }
+    //elem.innerText = card.symbol;
+    console.log(card.name);
+    elem.style.backgroundImage = `url('/img/svg-cards/${card.name}.svg')`;
+    // if(card.suit === 'diamonds' || card.suit === 'hearts') {
+    //     elem.style.color = 'red';
+    // } else {
+    //     elem.style.color = 'black';
+    // }
 };
 
 const wipeElem = (elem) => {

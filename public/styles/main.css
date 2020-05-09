@@ -263,15 +263,16 @@
 }
 
 .cards {
-    height: 12.5vh;
-    width: 8.5vh;
-    line-height: 100%;
-    font-size: 12.5vh;
-    text-align: center;
-    background: white;
+    height: 13vh;
+    width: 9vh;
+    /* line-height: 100%; */
+    /* font-size: 12.5vh; */
+    /* text-align: center; */
+    background-color: white;
+    background-size: cover;
     border: 1px solid black;
     border-radius: 5px;
-    margin: 0.1vw;
+    margin: 0 0.2vh 0 0.2vh;
     visibility: hidden;
 }
 

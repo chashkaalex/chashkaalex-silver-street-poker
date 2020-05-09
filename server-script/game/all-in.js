@@ -11,6 +11,7 @@ const updatePotsAndQues = () => {
 
         console.log(`Main pot (${handPot}) is moved to the ${roundAllInQue[0].player.userName}'s sidepot`);
         roundAllInQue[0].player.sidePot += handPot;
+        handPot = 0;
         
         //Moving the bets to call the sidepots:
         roundAllInQue.forEach((allInData, allInIdx) => {
@@ -29,20 +30,24 @@ const updatePotsAndQues = () => {
             });
             gameVars.handAllInQue.add({player: allInData.player, sidePot: allInData.player.sidePot});
         });        
+        gameVars.roundAllInQue.reset();
+        console.log('After updating pots and ques, this side pots are:');
+        users.getActivePlayers().forEach(player => {
+            if(player.sidePot) {
+                console.log(`${player.userName} - ${player.sidePot}`);
+            }
+        });
     }
 
     //Moving the remaining bets into the main pot:
     users.getAllUsers().forEach(user => {
         handPot += user.roundBet;
-        console.log('updating handpot'.green);
+        // console.log('updating handpot'.green);
         user.roundBet = 0;
         user.acted = false;
     });
 
     gameVars.handPot.set(handPot);
-    gameVars.roundAllInQue.reset();
-    console.log('After updating pots and ques, this side pots are:');
-    console.log(users.getActivePlayers().map(user => user.sidePot).join(' , '));
 };
 
 const awardAllPots = (mainWinners, mainPot) => {

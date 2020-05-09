@@ -43,10 +43,10 @@ const updateOnAllIn = (player, bet) => {
 };
 
 const roundEndCheck = () => {
-    console.log('Round end check fired');
-    users.getBettingPlayers().forEach(user => {
-        console.log(`${user.userName} - is acted: ${user.acted}`);
-    });
+    // console.log('Round end check fired');
+    // users.getBettingPlayers().forEach(user => {
+    //     console.log(`${user.userName} - is acted: ${user.acted}`);
+    // });
     const bettingPLayers = users.getBettingPlayers();
     return bettingPLayers.every(player => player.acted);
 };

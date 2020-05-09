@@ -33,7 +33,7 @@ const checkCall = () => {
     } else if(thisUser.topBet === 0) {
         socket.emit('player acted', {act: 'check', bet: 0, name: thisUserName, raise: false});
     } else {    //just a simple call
-        if(newBet > 5 && !confirm(`This means betting ${newBet}$. Sure?`)) {
+        if(newBet > 5 && newBet > currentBigBlind && !confirm(`This means betting ${newBet}$. Sure?`)) {
             return;           
         } 
         socket.emit('player acted', {act: 'call', bet: newBet, name: thisUserName, raise: false});        
