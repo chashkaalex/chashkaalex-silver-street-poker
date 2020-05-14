@@ -97,12 +97,13 @@ const displayCard = (elem, card) => {
     elem.style.visibility = 'visible';
     //elem.innerText = card.symbol;
     console.log(card.name);
-    elem.style.backgroundImage = `url('/img/svg-cards/${card.name}.svg')`;
-    // if(card.suit === 'diamonds' || card.suit === 'hearts') {
-    //     elem.style.color = 'red';
-    // } else {
-    //     elem.style.color = 'black';
-    // }
+    // elem.style.backgroundImage = `url('/img/svg-cards/${card.name}.svg')`;
+    const svgcard = new Image();
+    svgcard.onload = function() {
+        elem.style.backgroundImage = "url(" + this.src + ")";;
+    };
+    svgcard.src = `https://cdn.jsdelivr.net/gh/chashkaalex/silver-street-poker@cards-with-svg/public/img/svg-cards/${card.name}.svg`;
+
 };
 
 const wipeElem = (elem) => {
