@@ -27,4 +27,4 @@ const peruTrain = () => {
         dest.style.display = 'none';
 	}, 5000);
 };
-//peruTrain()
+export {peruTrain};

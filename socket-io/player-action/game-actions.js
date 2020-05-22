@@ -135,7 +135,7 @@ module.exports = function(io) {
             // gameVars.handPot.set(handPot);
             nextPlayer.acting = true;
             console.log(`Next player is ${nextPlayer.userName}`);
-            io.emit('updating users', {users: users.getPlayersData(), handPot, msg});
+            io.emit('updating users', {users: users.getPlayersData(), handPot: gameVars.handPot.get(), msg});
             console.log('Rerendered on action end'.yellow);
             io.to(nextPlayer.id).emit('time to act', `ACT`);
         });    

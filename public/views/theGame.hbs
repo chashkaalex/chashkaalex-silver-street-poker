@@ -16,7 +16,7 @@
         <div id="logContainer">
                 <div id="gameLogLabel">Game Log:</div>
                 <div id="gameLog" ></div>
-                <button  id="gameLogButton" onclick="expandGameLog()">
+                <button  id="gameLogButton">
                     <i id="gameLogCaret" class="fa fa fa-toggle-down" style="font-size: 3vh;"></i>
                 </button>
         </div>    
@@ -122,11 +122,11 @@
                         <div class="table-cell dummy"></div>
                     </div>
                     <div class="table-col cards-container" >
-                        <div class="cards" id="F1"></div>
-                        <div class="cards" id="F2"></div>
-                        <div class="cards" id="F3"></div>
-                        <div class="cards" id="T"></div>
-                        <div class="cards" id="R"></div>
+                        <div class="comm-cards" id="F1"></div>
+                        <div class="comm-cards" id="F2"></div>
+                        <div class="comm-cards" id="F3"></div>
+                        <div class="comm-cards" id="T"></div>
+                        <div class="comm-cards" id="R"></div>
                     </div>
                     <div class="table-col cards-container">
                         <div class="table-cell dummy"></div>
@@ -240,30 +240,29 @@
     </div>
         
     <div id="menu">
-        <button type="button" id="playHandButton"  class="menu-item" onclick="playHand()">Play hand</button>
+        <button type="button" id="playHandButton"  class="menu-item" >Play hand</button>
         <div id="currentHand"></div>
         <div class="menu-item" id="game-buttons">
                 <p id="bet-input">
                     <input type="number" class="game-btn" id="betAmount" min="0" step="5" style="text-align:center;">
-                    <button type="button" class="game-btn" id="betButton" style="color: green;" onclick="bet()">Bet</button>
+                    <button type="button" class="game-btn" id="betButton" style="color: green;" >Bet</button>
                 </p>
                 <p id="fold-call">
-                    <button type="button" class="game-btn" id="foldButton" style="color: red;" onclick="fold()">Fold</button>
-                   <button type="button" class="game-btn" id="checkButton" style="color: royalblue;" onclick="checkCall()">Check</button>
+                    <button type="button" class="game-btn" id="foldButton" style="color: red;" >Fold</button>
+                   <button type="button" class="game-btn" id="checkButton" style="color: royalblue;" ">Check</button>
                 </p>
                 <p>
-                    <button type="button" class="game-btn" id="allInButton"  onclick="allIn()">All in</button>
+                    <button type="button" class="game-btn" id="allInButton"  >All in</button>
                 </p>
         </div>
     </div>
 
     <div id="animation"></div>
         <script src="/socket.io/socket.io.js"></script>
-        <script src="/client-script/script.js"></script>
-        <script src="/client-script/user-data-elems.js"></script>
-        <script src="/client-script/render.js"></script>
-        <script src="/client-script/browser-css-selector.js" type="text/javascript"></script>
-        <script src="/client-script/game-intents.js"></script>
-        <script src="/client-script/animation.js"></script>
+        <script type="module" src="/client-script/script.js"></script>
+        {{!-- <script src="/client-script/user-data-elems.js"></script> --}}
+        {{!-- <script src="/client-script/render.js"></script> --}}
+        {{!-- <script src="/client-script/game-intents.js"></script> --}}
+        {{!-- <script src="/client-script/animation.js"></script> --}}
 </body>
 </html>

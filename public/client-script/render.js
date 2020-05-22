@@ -1,3 +1,13 @@
+import {usersData, onTableCards, handPotElem, gameLogElem } from './user-data-elems.js';
+
+//Saving the templated username in the client script
+const thisUserName = document.getElementById("userName").innerText;
+console.log('Captured the username:', thisUserName);
+
+//creating data object for the user
+const thisUser = {name: thisUserName, holecards: ['', ''], stack: 0, bet:0, topBet: 0};
+
+const dealerSymbol = 'Ⓓ';
 
 const wipeUsersData = () => {
     handPotElem.innerText = '';
@@ -6,13 +16,21 @@ const wipeUsersData = () => {
     usersData.forEach(user => {
         wipeElem(user.bet);
         user.infoCont.style.visibility = 'hidden';
-        wipeElem(user.cards.h1);
-        wipeElem(user.cards.h2);
+        user.cards.forEach(card => {
+            wipeElem(card);
+        });
+        // wipeElem(user.cards.h1);
+        // wipeElem(user.cards.h2);
         wipeElem(user.name);
         wipeElem(user.stack);
         wipeElem(user.dealer);
     });
 };
+
+const removeTableCards = () => {
+    onTableCards.forEach(elem => wipeElem(elem));
+    playHandButton.style.visibility = 'visible';
+}
 
 const updateGameLog = (gameLog) => {
     gameLogElem.textContent = '';
@@ -23,6 +41,18 @@ const updateGameLog = (gameLog) => {
         gameLogElem.appendChild(entryDiv);            
     });
 };
+
+const emptyTheTable = () => {
+    console.log('Empty the table.');
+    onTableCards.forEach(elem => wipeElem(elem));
+};
+
+// const renderHoleCards = (holeCards) => {
+//     for (let i=0; i<2; i++) {
+//         thisUser.holecards[i] = holeCards[i];
+//         displayCard(holeCardsElems[i], userHoleCards[i]);
+//     }
+// };
 
 const rerenderTableUsers = (users, handPot) => {
     // console.log(users);
@@ -51,25 +81,37 @@ const rerenderTableUsers = (users, handPot) => {
         
         
 
-        usersData[idx].stack.style.visibility = 'visible';
-        usersData[idx].stack.innerText = user.stack + '$';
+
+        console.log('before checking:')
         if(idx === 0 && user.hasCards && thisUser.holecards[0].symbol) {
-            displayCard(usersData[idx].cards.h1, thisUser.holecards[0]);
-            displayCard(usersData[idx].cards.h2, thisUser.holecards[1]);
+            console.log('DISPLAING THIS PLAYER CARDS')
+            usersData[idx].cards.forEach((card, idx) => {
+                displayCard(card, thisUser.holecards[idx])
+            });
+            // displayCard(usersData[idx].cards.h1, thisUser.holecards[0]);
+            // displayCard(usersData[idx].cards.h2, thisUser.holecards[1]);
         }
+        
         if(idx > 0 && user.hasCards) {
-            usersData[idx].cards.h1.style.visibility = 'visible';
-            usersData[idx].cards.h2.style.visibility = 'visible';
+            usersData[idx].cards.forEach(card => {
+                card.style.visibility = 'visible';
+            })
+            // usersData[idx].cards.h1.style.visibility = 'visible';
+            // usersData[idx].cards.h2.style.visibility = 'visible';
             //console.log(user);
             if(user.currentHand && user.currentHand.length) {
-                displayCard(usersData[idx].cards.h1, user.currentHand[0]);
-                displayCard(usersData[idx].cards.h2, user.currentHand[1]);
+                usersData[idx].cards.forEach((card, idx) => {
+                    displayCard(card, user.currentHand[idx]);
+                })
+                // displayCard(usersData[idx].cards.h1, user.currentHand[0]);
+                // displayCard(usersData[idx].cards.h2, user.currentHand[1]);
             } else {
-                for (let card in usersData[idx].cards) {
-                    usersData[idx].cards[card].style.backgroundImage = `url('/img/svg-cards/card_back.svg')`;
-                    // usersData[idx].cards[card].innerText = cardBack;
-                    // usersData[idx].cards[card].style.color = 'darkblue';
-                }
+                usersData[idx].cards.forEach(card => {
+                    card.style.backgroundImage = `url('/img/svg-cards/card_back.svg')`;
+                });
+                // for (let card in usersData[idx].cards) {
+                //     usersData[idx].cards[card].style.backgroundImage = `url('/img/svg-cards/card_back.svg')`;
+                // }
             }
         } 
     });
@@ -91,6 +133,8 @@ const displayUserInfo = (user, idx) => {
     }
     usersData[idx].name.style.visibility = 'visible';
     usersData[idx].name.innerText = user.userName;
+    usersData[idx].stack.style.visibility = 'visible';
+    usersData[idx].stack.innerText = user.stack + '$';
 }
 
 const displayCard = (elem, card) => {
@@ -102,7 +146,7 @@ const displayCard = (elem, card) => {
     svgcard.onload = function() {
         elem.style.backgroundImage = "url(" + this.src + ")";;
     };
-    svgcard.src = `https://cdn.jsdelivr.net/gh/chashkaalex/silver-street-poker@cards-with-svg/public/img/svg-cards/${card.name}.svg`;
+    svgcard.src = `https://cdn.jsdelivr.net/gh/chashkaalex/silver-street-poker@cards-with-svg/public/img/svg-cards/${card.suit}${card.strength}.svg`;
 
 };
 
@@ -135,3 +179,5 @@ const displayBet = (user, betElem) => {
         betElem.innerText = '\xa0' + 's.p.:' + user.sidePot + '$' + '\xa0';
     }
 };
+
+export {wipeUsersData, removeTableCards, displayCard, updateGameLog, emptyTheTable, rerenderTableUsers, thisUser};

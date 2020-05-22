@@ -169,6 +169,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    /* border: 1px solid red; */
 }
 
 .bet {
@@ -265,9 +266,17 @@
 .cards {
     height: 13vh;
     width: 9vh;
-    /* line-height: 100%; */
-    /* font-size: 12.5vh; */
-    /* text-align: center; */
+    background-color: white;
+    background-size: cover;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 0 0.2vh 0 0.2vh;
+    visibility: hidden;
+}
+
+.comm-cards {
+    height: 6vw;
+    width: 4.13vw;
     background-color: white;
     background-size: cover;
     border: 1px solid black;
