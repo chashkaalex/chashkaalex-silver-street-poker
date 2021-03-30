@@ -1,7 +1,15 @@
 console.log('Client script loaded!');
 
 //Import statements
-import {wipeUsersData, removeTableCards, displayCard, updateGameLog, emptyTheTable, rerenderTableUsers, thisUser} from './render.js';
+import {
+    wipeUsersData, 
+    removeTableCards, 
+    displayCard, 
+    updateGameLog, 
+    emptyTheTable, 
+    rerenderTableUsers, 
+    thisUser
+} from './render.js';
 import {peruTrain} from './animation.js';
 import { 
     commCardsElems,
@@ -39,18 +47,7 @@ const gameLog = [];
 
 
 
-//getting the card images
-const localDeck = {
-    spades: Array(13),
-    diamonds: Array(13),
-    clubs: Array(13),
-    hearts: Array(13)
-};
 
-for (const suit in localDeck) {
-    console.log(suit);
-    console.log(localDeck[suit]);
-};
 
 const socket = io();
 

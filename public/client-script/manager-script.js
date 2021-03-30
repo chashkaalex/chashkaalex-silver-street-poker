@@ -38,8 +38,16 @@ const manageSocketActions = () => {
             tBody.innerHTML = '';       // clearing table contents
                 users.forEach((user, idx) => {
                     console.log('Inserting new row.');
+                    console.log(user);
                     let thisRow = tBody.insertRow(idx);
-                    thisRow.insertCell(0).innerHTML = user.userName;;
+                    let nameCell = thisRow.insertCell(0)
+                    nameCell.innerHTML = user.userName;
+                    // if(user.status === "connected") {
+                    //     nameCell.style.color = "green";
+                    // } else {
+                    //     nameCell.style.color = "black"
+                    // }
+                    nameCell.style.color = user.status === "connected" ? "green" : "black";
                     thisRow.insertCell(1).innerHTML = user.acting   ? '✅' : '❌';
                     thisRow.insertCell(2).innerHTML = user.hasCards ? '✅' : '❌';
                     thisRow.insertCell(3).innerHTML = user.isDealer ? '✅' : '❌';

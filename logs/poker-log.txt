@@ -1,0 +1,101 @@
+Sasha: lets play a hand
+Kuzja is now a dealer
+Rerendered on dealing hole cards
+Балу: fold
+foldCounter was  1
+foldCounter now is  2
+Next player is Гамак
+Rerendered on action end
+Гамак: fold
+foldCounter was  2
+foldCounter now is  3
+emitting animation
+Next player is Sasha
+Rerendered on action end
+Sasha: fold
+foldCounter was  0
+foldCounter now is  1
+Next player is Kuzja
+Rerendered on action end
+Kuzja: call
+Next player is Julia
+Rerendered on action end
+Julia: call
+Next player is Shoora
+Rerendered on action end
+Shoora: all in
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 0 community cards now.
+evaluating 5 cards
+Kuzja's hand is Highcard King
+evaluating 5 cards
+Julia's hand is Highcard Ace
+evaluating 5 cards
+Shoora's hand is Pair of Eights, the kicker is King
+Setting the game variables
+Main pot (0) is moved to the Shoora's sidepot
+After updating pots and ques, this side pots are:
+Shoora - 73
+Rerendered on round end
+handpot is now 0
+Next player is Julia
+Rerendered on action end
+Julia: check
+Next player is Kuzja
+Rerendered on action end
+Kuzja: check
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 3 community cards now.
+evaluating 6 cards
+Kuzja's hand is Highcard King
+evaluating 6 cards
+Julia's hand is Highcard Ace
+evaluating 6 cards
+Shoora's hand is Pair of Eights, the kicker is King
+Setting the game variables
+Rerendered on round end
+handpot is now 0
+Next player is Julia
+Rerendered on action end
+Julia: check
+Next player is Kuzja
+Rerendered on action end
+Kuzja: check
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 4 community cards now.
+evaluating 7 cards
+Kuzja's hand is Highcard Ace
+evaluating 7 cards
+Julia's hand is Pair of Aces, the kicker is Queen
+evaluating 7 cards
+Shoora's hand is Pair of Eights, the kicker is Ace
+Setting the game variables
+Rerendered on round end
+handpot is now 0
+Next player is Julia
+Rerendered on action end
+Julia: check
+Next player is Kuzja
+Rerendered on action end
+Kuzja: check
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 5 community cards now.
+There are 1 all-in players.
+Adding the main pot (0$)
+After updating the state, there are 2 pots to award and 4 potential winners
+Winners:  Julia
+Winners of the Shoora's side pot (73$ strong) :  [ 'Julia' ]
+Sidepot owner is not among the winners. Spilling this pot to the next one
+Winners:  Julia
+Winners of the Kuzja's side pot (73$ strong) :  [ 'Julia' ]
+Sidepot owner is not among the winners. Spilling this pot to the next one
+the hand has ended!
+Гамак disconnected.
+updated status to disconnected
+Removed a user. Number of connected user is now:  5
+hand running status is  false
+Created the backup. number of users is , 6

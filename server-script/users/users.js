@@ -46,23 +46,25 @@ const getNextDealer = () => {
     console.log('somethis gone WRONG.');
 };
 
-const getNextToDealer = () => {
-    const connectedUsers = getConnectedUsers();
-    const dealerIdx = connectedUsers.findIndex(player => player.isDealer);
-    for(let i=0; i<connectedUsers.length; i++) {
-        if(connectedUsers[(dealerIdx+i+1)%connectedUsers.length].hasCards) {
-            return connectedUsers[(dealerIdx+i+1)%connectedUsers.length];
+
+const getNextToDealer = () => {                 //getting the user that makes a first move on a new round
+    const allUsers = getAllUsers();
+    const dealerIdx = allUsers.findIndex(player => player.isDealer);
+    for(let i=0; i<allUsers.length; i++) {
+        const theUser = allUsers[(dealerIdx+i+1)%allUsers.length];
+        if(theUser.hasCards && !theUser.isAllIn) {
+            return theUser;
         }
     }
     console.log('somethis gone WRONG.');
 };
 
 const getNewFirstDealer = () => {
-    const connectedUsers = getConnectedUsers();
-    const dealerIdx = connectedUsers.findIndex(player => player.isDealer);
-    for(let i=0; i<connectedUsers.length; i++) {
-        if(connectedUsers[(dealerIdx+i+1)%connectedUsers.length].stack > 0) {
-            return connectedUsers[(dealerIdx+i+1)%connectedUsers.length];
+    const allUsers = getAllUsers();
+    const dealerIdx = allUsers.findIndex(player => player.isDealer);
+    for(let i=0; i<allUsers.length; i++) {
+        if(allUsers[(dealerIdx+i+1)%allUsers.length].stack > 0) {
+            return allUsers[(dealerIdx+i+1)%allUsers.length];
         }
     }
     console.log('something gone WRONG.');

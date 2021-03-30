@@ -1,0 +1,1004 @@
+Rerendered on action end
+Sasha: fold
+foldCounter was  0
+foldCounter now is  1
+Next player is Shoora
+Rerendered on action end
+Shoora: fold
+foldCounter was  1
+foldCounter now is  2
+Next player is Julia
+Rerendered on action end
+Julia: call
+Next player is Kuzja
+Rerendered on action end
+Kuzja: fold
+foldCounter was  2
+foldCounter now is  3
+emitting animation
+Next player is Gamak
+Rerendered on action end
+Gamak: fold
+foldCounter was  0
+foldCounter now is  1
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 0 community cards now.
+evaluating 5 cards
+Julia's hand is Pair of Kings, the kicker is Ten
+evaluating 5 cards
+Гхыр!'s hand is Highcard Ace
+Setting the game variables
+Rerendered on round end
+handpot is now 140
+Next player is Julia
+Rerendered on action end
+Julia: check
+Next player is Гхыр!
+Rerendered on action end
+Гхыр!: bet
+This was a raise, resetting "acted" property
+Next player is Julia
+Rerendered on action end
+Julia: call
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 3 community cards now.
+evaluating 6 cards
+Julia's hand is Pair of Kings, the kicker is Ten
+evaluating 6 cards
+Гхыр!'s hand is Highcard Ace
+Setting the game variables
+Rerendered on round end
+handpot is now 160
+Next player is Julia
+Rerendered on action end
+Julia: check
+Next player is Гхыр!
+Rerendered on action end
+Гхыр!: check
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 4 community cards now.
+evaluating 7 cards
+Julia's hand is Pair of Kings, the kicker is Ten
+evaluating 7 cards
+Гхыр!'s hand is Highcard Ace
+Setting the game variables
+Rerendered on round end
+handpot is now 160
+Next player is Julia
+Rerendered on action end
+Julia: check
+Next player is Гхыр!
+Rerendered on action end
+Гхыр!: bet
+This was a raise, resetting "acted" property
+Next player is Julia
+Rerendered on action end
+Julia: call
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 5 community cards now.
+There are 0 all-in players.
+Adding the main pot (180$)
+After updating the state, there are 1 pots to award and 2 potential winners
+Winners:  Julia
+This is the main pot, it is 180$ strong.
+There are 1 winners.
+Each one will get 180 $.
+The residue will be 0.
+After awarding the Julia's stack is 250
+the hand has ended!
+hand running status is  false
+Created the backup. number of users is , 6
+
+
+Sasha: lets play a hand
+Julia is now a dealer
+Rerendered on dealing hole cards
+Гхыр!: call
+Next player is Sasha
+Rerendered on action end
+Sasha: fold
+foldCounter was  1
+foldCounter now is  2
+Next player is Shoora
+Rerendered on action end
+Shoora: call
+Next player is Julia
+Rerendered on action end
+Julia: fold
+foldCounter was  2
+foldCounter now is  3
+emitting animation
+Next player is Kuzja
+Rerendered on action end
+Kuzja: call
+Next player is Gamak
+Rerendered on action end
+Gamak: call
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 0 community cards now.
+evaluating 5 cards
+Shoora's hand is Three of a kind of Ten, the kicker is Five
+evaluating 5 cards
+Kuzja's hand is Highcard Ten
+evaluating 5 cards
+Gamak's hand is Pair of Fives, the kicker is Queen
+evaluating 5 cards
+Гхыр!'s hand is Three of a kind of Five, the kicker is Ten
+Setting the game variables
+Rerendered on round end
+handpot is now 80
+Next player is Kuzja
+Rerendered on action end
+Kuzja: check
+Next player is Gamak
+Rerendered on action end
+Gamak: check
+Next player is Гхыр!
+Rerendered on action end
+Гхыр!: bet
+This was a raise, resetting "acted" property
+Next player is Shoora
+Rerendered on action end
+Shoora: call
+Next player is Kuzja
+Rerendered on action end
+Kuzja: fold
+foldCounter was  0
+foldCounter now is  1
+Next player is Gamak
+Rerendered on action end
+Gamak: all in
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 3 community cards now.
+evaluating 6 cards
+Shoora's hand is Three of a kind of Ten, the kicker is Jack
+evaluating 6 cards
+Gamak's hand is Pair of Fives, the kicker is Queen
+evaluating 6 cards
+Гхыр!'s hand is Three of a kind of Five, the kicker is Jack
+Setting the game variables
+Main pot (80) is moved to the Gamak's sidepot
+After updating pots and ques, this side pots are:
+Gamak - 125
+Rerendered on round end
+handpot is now 0
+Next player is Gamak
+Rerendered on action end
+Gamak: all in
+Next player is Shoora
+Rerendered on action end
+Shoora: bet
+This was a raise, resetting "acted" property
+Next player is Гхыр!
+Rerendered on action end
+Гхыр!: all in
+This was a raise, resetting "acted" property
+Next player is Shoora
+Rerendered on action end
+Shoora: call
+Main pot (0) is moved to the Gamak's sidepot
+After updating pots and ques, this side pots are:
+Gamak - 125
+Гхыр! - 90
+Shoora's hand is Three of a kind of Ten, the kicker is Jack
+Gamak's hand is Pair of Fives, the kicker is Queen
+Гхыр!'s hand is Three of a kind of Five, the kicker is Jack
+Rerendered on dealing the rest of community cards
+There are 3 all-in players.
+Adding the main pot (0$)
+After updating the state, there are 4 pots to award and 4 potential winners
+Winners:  Shoora
+Winners of the Gamak's side pot (125$ strong) :  [ 'Shoora' ]
+Sidepot owner is not among the winners. Spilling this pot to the next one
+Winners:  Shoora
+Winners of the Gamak's side pot (250$ strong) :  [ 'Shoora' ]
+Sidepot owner is not among the winners. Spilling this pot to the next one
+Winners:  Shoora
+Winners of the Гхыр!'s side pot (340$ strong) :  [ 'Shoora' ]
+Sidepot owner is not among the winners. Spilling this pot to the next one
+Winners:  Shoora
+Winners of the Shoora's side pot (340$ strong) :  [ 'Shoora' ]
+Shoora is among the winners!
+Shoora's stack is now 788
+The winner is Shoora, the pot was 0, stack is now 788
+Rerendered on "last player" after bet
+hand running status is  false
+Created the backup. number of users is , 6
+
+
+Gamak: lets play a hand
+Kuzja is now a dealer
+Rerendered on dealing hole cards
+Sasha: fold
+foldCounter was  1
+foldCounter now is  2
+Next player is Shoora
+Rerendered on action end
+Shoora: call
+Next player is Julia
+Rerendered on action end
+Julia: fold
+foldCounter was  2
+foldCounter now is  3
+emitting animation
+Next player is Kuzja
+Rerendered on action end
+Kuzja: call
+Next player is Gamak
+Rerendered on action end
+Gamak: call
+Next player is Гхыр!
+Rerendered on action end
+Гхыр!: fold
+foldCounter was  0
+foldCounter now is  1
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 0 community cards now.
+evaluating 5 cards
+Shoora's hand is Pair of Sevens, the kicker is Nine
+evaluating 5 cards
+Kuzja's hand is Pair of Sevens, the kicker is King
+evaluating 5 cards
+Gamak's hand is Two pair of Nines and Sevens, the kicker is Queen
+Setting the game variables
+Rerendered on round end
+handpot is now 104
+Next player is Gamak
+Rerendered on action end
+Gamak: bet
+This was a raise, resetting "acted" property
+Next player is Shoora
+Rerendered on action end
+Shoora: fold
+foldCounter was  1
+foldCounter now is  2
+Next player is Kuzja
+Rerendered on action end
+Kuzja: call
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 3 community cards now.
+evaluating 6 cards
+Kuzja's hand is Pair of Sevens, the kicker is King
+evaluating 6 cards
+Gamak's hand is Two pair of Nines and Sevens, the kicker is Queen
+Setting the game variables
+Rerendered on round end
+handpot is now 130
+Next player is Gamak
+Rerendered on action end
+Gamak: check
+Next player is Kuzja
+Rerendered on action end
+Kuzja: all in
+This was a raise, resetting "acted" property
+Next player is Gamak
+Rerendered on action end
+Gamak: call
+Main pot (130) is moved to the Kuzja's sidepot
+After updating pots and ques, this side pots are:
+Kuzja - 160
+Kuzja's hand is Pair of Sevens, the kicker is Ace
+Gamak's hand is Two pair of Nines and Sevens, the kicker is Ace
+Rerendered on dealing the rest of community cards
+There are 1 all-in players.
+Adding the main pot (0$)
+After updating the state, there are 2 pots to award and 2 potential winners
+Winners:  Gamak
+Winners of the Kuzja's side pot (160$ strong) :  [ 'Gamak' ]
+Sidepot owner is not among the winners. Spilling this pot to the next one
+Winners:  Gamak
+Winners of the Gamak's side pot (160$ strong) :  [ 'Gamak' ]
+Gamak is among the winners!
+Gamak's stack is now 181
+The winner is Gamak, the pot was 0, stack is now 181
+Rerendered on "last player" after bet
+hand running status is  false
+Created the backup. number of users is , 6
+
+
+Kuzja: lets play a hand
+Gamak is now a dealer
+Rerendered on dealing hole cards
+Shoora: call
+Next player is Julia
+Rerendered on action end
+Julia: call
+Next player is Gamak
+Rerendered on action end
+Gamak: call
+Next player is Гхыр!
+Rerendered on action end
+Гхыр!: all in
+This was a raise, resetting "acted" property
+Next player is Sasha
+Rerendered on action end
+Sasha: fold
+foldCounter was  2
+foldCounter now is  3
+emitting animation
+Next player is Shoora
+Rerendered on action end
+Shoora: call
+Next player is Julia
+Rerendered on action end
+Julia: call
+Next player is Gamak
+Rerendered on action end
+Gamak: bet
+This was a raise, resetting "acted" property
+Next player is Shoora
+Rerendered on action end
+Shoora: call
+Next player is Julia
+Rerendered on action end
+Julia: call
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 0 community cards now.
+evaluating 5 cards
+Shoora's hand is Highcard Queen
+evaluating 5 cards
+Julia's hand is Highcard Jack
+evaluating 5 cards
+Gamak's hand is Highcard Eight
+evaluating 5 cards
+Гхыр!'s hand is Highcard Queen
+Setting the game variables
+Main pot (0) is moved to the Гхыр!'s sidepot
+After updating pots and ques, this side pots are:
+Гхыр! - 224
+Rerendered on round end
+handpot is now 123
+Next player is Гхыр!
+Rerendered on action end
+Гхыр!: all in
+Next player is Shoora
+Rerendered on action end
+Shoora: check
+Next player is Julia
+Rerendered on action end
+Julia: check
+Next player is Gamak
+Rerendered on action end
+Gamak: all in
+This was a raise, resetting "acted" property
+Next player is Shoora
+Rerendered on action end
+Shoora: call
+Next player is Julia
+Rerendered on action end
+Julia: call
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 3 community cards now.
+evaluating 6 cards
+Shoora's hand is Highcard King
+evaluating 6 cards
+Julia's hand is Highcard King
+evaluating 6 cards
+Gamak's hand is Highcard King
+evaluating 6 cards
+Гхыр!'s hand is Highcard King
+Setting the game variables
+Main pot (123) is moved to the Гхыр!'s sidepot
+After updating pots and ques, this side pots are:
+Gamak - 273
+Гхыр! - 347
+Rerendered on round end
+handpot is now 0
+Next player is Гхыр!
+Rerendered on action end
+Гхыр!: all in
+Next player is Shoora
+Rerendered on action end
+Shoora: check
+Next player is Julia
+Rerendered on action end
+Julia: check
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 4 community cards now.
+evaluating 7 cards
+Shoora's hand is Highcard King
+evaluating 7 cards
+Julia's hand is Highcard King
+evaluating 7 cards
+Gamak's hand is Highcard King
+evaluating 7 cards
+Гхыр!'s hand is Highcard King
+Setting the game variables
+Main pot (0) is moved to the Гхыр!'s sidepot
+After updating pots and ques, this side pots are:
+Gamak - 273
+Гхыр! - 347
+Rerendered on round end
+handpot is now 0
+Next player is Гхыр!
+Rerendered on action end
+Гхыр!: all in
+Next player is Shoora
+Rerendered on action end
+Shoora: check
+Next player is Julia
+Rerendered on action end
+Julia: check
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 5 community cards now.
+Main pot (0) is moved to the Гхыр!'s sidepot
+After updating pots and ques, this side pots are:
+Gamak - 273
+Гхыр! - 347
+There are 5 all-in players.
+Adding the main pot (0$)
+After updating the state, there are 6 pots to award and 9 potential winners
+Winners:  Гхыр! , Гхыр! , Gamak , Гхыр! , Гхыр! , Shoora , Julia , Gamak , Гхыр!
+Winners of the Гхыр!'s side pot (224$ strong) :  [
+  'Гхыр!', 'Гхыр!',
+  'Gamak', 'Гхыр!',
+  'Гхыр!', 'Shoora',
+  'Julia', 'Gamak',
+  'Гхыр!'
+]
+Гхыр! is among the winners!
+Гхыр!'s stack is now 24
+Гхыр!'s stack is now 48
+Gamak's stack is now 24
+Гхыр!'s stack is now 72
+Гхыр!'s stack is now 96
+Shoora's stack is now 605
+Julia's stack is now 93
+Gamak's stack is now 48
+Гхыр!'s stack is now 120
+Winners:  Гхыр! , Gamak , Гхыр! , Гхыр! , Shoora , Julia , Gamak , Гхыр!
+Winners of the Гхыр!'s side pot (347$ strong) :  [
+  'Гхыр!',  'Gamak',
+  'Гхыр!',  'Гхыр!',
+  'Shoora', 'Julia',
+  'Gamak',  'Гхыр!'
+]
+Гхыр! is among the winners!
+Гхыр!'s stack is now 163
+Gamak's stack is now 91
+Гхыр!'s stack is now 206
+Гхыр!'s stack is now 249
+Shoora's stack is now 648
+Julia's stack is now 136
+Gamak's stack is now 134
+Гхыр!'s stack is now 292
+Winners:  Gamak , Гхыр! , Гхыр! , Shoora , Julia , Gamak , Гхыр!
+Winners of the Gamak's side pot (273$ strong) :  [
+  'Gamak', 'Гхыр!',
+  'Гхыр!', 'Shoora',
+  'Julia', 'Gamak',
+  'Гхыр!'
+]
+Gamak is among the winners!
+Gamak's stack is now 173
+Гхыр!'s stack is now 331
+Гхыр!'s stack is now 370
+Shoora's stack is now 687
+Julia's stack is now 175
+Gamak's stack is now 212
+Gamak's stack is now 212
+Гхыр!'s stack is now 409
+Winners:  Гхыр! , Гхыр! , Shoora , Julia , Gamak , Гхыр!
+Winners of the Гхыр!'s side pot (347$ strong) :  [ 'Гхыр!', 'Гхыр!', 'Shoora', 'Julia', 'Gamak', 'Гхыр!' ] 
+Гхыр! is among the winners!
+Гхыр!'s stack is now 466
+Гхыр!'s stack is now 523
+Shoora's stack is now 744
+Julia's stack is now 232
+Gamak's stack is now 269
+Гхыр!'s stack is now 580
+Winners:  Гхыр! , Shoora , Julia , Gamak , Гхыр!
+Winners of the Гхыр!'s side pot (347$ strong) :  [ 'Гхыр!', 'Shoora', 'Julia', 'Gamak', 'Гхыр!' ]
+Гхыр! is among the winners!
+Гхыр!'s stack is now 649
+Shoora's stack is now 813
+Julia's stack is now 301
+Gamak's stack is now 338
+Гхыр!'s stack is now 718
+Winners:  Shoora , Julia , Gamak , Гхыр!
+Winners of the Shoora's side pot (0$ strong) :  [ 'Shoora', 'Julia', 'Gamak', 'Гхыр!' ]
+Shoora is among the winners!
+Shoora's stack is now 813
+Julia's stack is now 301
+Gamak's stack is now 338
+Гхыр!'s stack is now 718
+the hand has ended!
+hand running status is  false
+Created the backup. number of users is , 6
+
+
+Sasha: lets play a hand
+Гхыр! is now a dealer
+Rerendered on dealing hole cards
+Julia: fold
+foldCounter was  0
+foldCounter now is  1
+Next player is Kuzja
+Rerendered on action end
+Kuzja: call
+Next player is Gamak
+Rerendered on action end
+Gamak: fold
+foldCounter was  1
+foldCounter now is  2
+Next player is Гхыр!
+Rerendered on action end
+Гхыр!: fold
+foldCounter was  2
+foldCounter now is  3
+emitting animation
+Next player is Sasha
+Rerendered on action end
+Sasha: fold
+foldCounter was  0
+foldCounter now is  1
+Next player is Shoora
+Rerendered on action end
+Shoora: call
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 0 community cards now.
+evaluating 5 cards
+Shoora's hand is Highcard King
+evaluating 5 cards
+Kuzja's hand is Pair of Threes, the kicker is King
+Setting the game variables
+Rerendered on round end
+handpot is now 70
+Next player is Shoora
+Rerendered on action end
+Shoora: check
+Next player is Kuzja
+Rerendered on action end
+Kuzja: check
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 3 community cards now.
+evaluating 6 cards
+Shoora's hand is Pair of Fours, the kicker is King
+evaluating 6 cards
+Kuzja's hand is Two pair of Fours and Threes, the kicker is King
+Setting the game variables
+Rerendered on round end
+handpot is now 70
+Next player is Shoora
+Rerendered on action end
+Shoora: check
+Next player is Kuzja
+Rerendered on action end
+Kuzja: bet
+This was a raise, resetting "acted" property
+Next player is Shoora
+Rerendered on action end
+Shoora: call
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 4 community cards now.
+evaluating 7 cards
+Shoora's hand is Two pair of Kings and Fours, the kicker is Nine
+evaluating 7 cards
+Kuzja's hand is Two pair of Kings and Fours, the kicker is Nine
+Setting the game variables
+Rerendered on round end
+handpot is now 110
+Next player is Shoora
+Rerendered on action end
+Shoora: check
+Next player is Kuzja
+Rerendered on action end
+Kuzja: all in
+This was a raise, resetting "acted" property
+Next player is Shoora
+Rerendered on action end
+Shoora: fold
+foldCounter was  1
+foldCounter now is  2
+Main pot (110) is moved to the Kuzja's sidepot
+After updating pots and ques, this side pots are:
+Kuzja - 137
+There are 1 all-in players.
+After updating the state, there are 1 pots to award and 1 potential winners
+Winners:  Kuzja
+Winners of the Kuzja's side pot (137$ strong) :  [ 'Kuzja' ]
+Kuzja is among the winners!
+Kuzja's stack is now 137
+The winner is Kuzja, the pot was 0, stack is now 137
+hand running status is  false
+Created the backup. number of users is , 6
+
+
+Sasha: lets play a hand
+Sasha is now a dealer
+Rerendered on dealing hole cards
+Kuzja: fold
+foldCounter was  2
+foldCounter now is  3
+emitting animation
+Next player is Gamak
+Rerendered on action end
+Gamak: call
+Next player is Гхыр!
+Rerendered on action end
+Гхыр!: call
+Next player is Sasha
+Rerendered on action end
+Sasha: fold
+foldCounter was  0
+foldCounter now is  1
+Next player is Shoora
+Rerendered on action end
+Shoora: call
+Next player is Julia
+Rerendered on action end
+Julia: call
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 0 community cards now.
+evaluating 5 cards
+Shoora's hand is Pair of Jacks, the kicker is Nine
+evaluating 5 cards
+Julia's hand is Two pair of Jacks and Sixs, the kicker is Five
+evaluating 5 cards
+Gamak's hand is Pair of Jacks, the kicker is King
+evaluating 5 cards
+Гхыр!'s hand is Pair of Jacks, the kicker is Seven
+Setting the game variables
+Rerendered on round end
+handpot is now 120
+Next player is Shoora
+Rerendered on action end
+Shoora: check
+Next player is Julia
+Rerendered on action end
+Julia: check
+Next player is Gamak
+Rerendered on action end
+Gamak: check
+Next player is Гхыр!
+Rerendered on action end
+Гхыр!: check
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 3 community cards now.
+evaluating 6 cards
+Shoora's hand is Pair of Jacks, the kicker is Ten
+evaluating 6 cards
+Julia's hand is Two pair of Jacks and Sixs, the kicker is Ten
+evaluating 6 cards
+Gamak's hand is Pair of Jacks, the kicker is King
+evaluating 6 cards
+Гхыр!'s hand is Pair of Jacks, the kicker is Ten
+Setting the game variables
+Rerendered on round end
+handpot is now 120
+Next player is Shoora
+Rerendered on action end
+Shoora: check
+Next player is Julia
+Rerendered on action end
+Julia: check
+Next player is Gamak
+Rerendered on action end
+Gamak: check
+Next player is Гхыр!
+Rerendered on action end
+Гхыр!: check
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 4 community cards now.
+evaluating 7 cards
+Shoora's hand is Straight from Queen
+evaluating 7 cards
+Julia's hand is Two pair of Jacks and Sixs, the kicker is Queen
+evaluating 7 cards
+Gamak's hand is Two pair of Queens and Jacks, the kicker is King
+evaluating 7 cards
+Гхыр!'s hand is Pair of Jacks, the kicker is Queen
+Setting the game variables
+Rerendered on round end
+handpot is now 120
+Next player is Shoora
+Rerendered on action end
+Shoora: bet
+This was a raise, resetting "acted" property
+Next player is Julia
+Rerendered on action end
+Julia: call
+Next player is Gamak
+Rerendered on action end
+Gamak: call
+Next player is Гхыр!
+Rerendered on action end
+Гхыр!: fold
+foldCounter was  1
+foldCounter now is  2
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 5 community cards now.
+There are 0 all-in players.
+Adding the main pot (180$)
+After updating the state, there are 1 pots to award and 3 potential winners
+Winners:  Shoora
+This is the main pot, it is 180$ strong.
+There are 1 winners.
+Each one will get 180 $.
+The residue will be 0.
+After awarding the Shoora's stack is 895
+the hand has ended!
+hand running status is  false
+Created the backup. number of users is , 6
+
+
+Gamak: lets play a hand
+Shoora is now a dealer
+Rerendered on dealing hole cards
+Gamak: call
+Next player is Гхыр!
+Rerendered on action end
+Гхыр!: fold
+foldCounter was  2
+foldCounter now is  3
+emitting animation
+Next player is Sasha
+Rerendered on action end
+Sasha: call
+Next player is Shoora
+Rerendered on action end
+Shoora: call
+Next player is Julia
+Rerendered on action end
+Julia: call
+Next player is Kuzja
+Rerendered on action end
+Kuzja: call
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 0 community cards now.
+evaluating 5 cards
+Sasha's hand is Pair of Queens, the kicker is Jack
+evaluating 5 cards
+Shoora's hand is Highcard Ace
+evaluating 5 cards
+Julia's hand is Highcard Ace
+evaluating 5 cards
+Kuzja's hand is Highcard Jack
+evaluating 5 cards
+Gamak's hand is Highcard King
+Setting the game variables
+Rerendered on round end
+handpot is now 150
+Next player is Julia
+Rerendered on action end
+Julia: check
+Next player is Kuzja
+Rerendered on action end
+Kuzja: check
+Next player is Gamak
+Rerendered on action end
+Gamak: bet
+This was a raise, resetting "acted" property
+Next player is Sasha
+Rerendered on action end
+Sasha: bet
+This was a raise, resetting "acted" property
+Next player is Shoora
+Rerendered on action end
+Shoora: fold
+foldCounter was  0
+foldCounter now is  1
+Next player is Julia
+Rerendered on action end
+Julia: fold
+foldCounter was  1
+foldCounter now is  2
+Next player is Kuzja
+Rerendered on action end
+Kuzja: fold
+foldCounter was  2
+foldCounter now is  3
+emitting animation
+Next player is Gamak
+Rerendered on action end
+Gamak: call
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 3 community cards now.
+evaluating 6 cards
+Sasha's hand is Two pair of Queens and Jacks, the kicker is Nine
+evaluating 6 cards
+Gamak's hand is Pair of Jacks, the kicker is King
+Setting the game variables
+Rerendered on round end
+handpot is now 250
+Next player is Gamak
+Rerendered on action end
+Gamak: bet
+This was a raise, resetting "acted" property
+Next player is Sasha
+Rerendered on action end
+Sasha: bet
+This was a raise, resetting "acted" property
+Next player is Gamak
+Rerendered on action end
+Gamak: call
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 4 community cards now.
+evaluating 7 cards
+Sasha's hand is Two pair of Queens and Jacks, the kicker is Nine
+evaluating 7 cards
+Gamak's hand is Pair of Jacks, the kicker is King
+Setting the game variables
+Rerendered on round end
+handpot is now 350
+Next player is Gamak
+Rerendered on action end
+Gamak: check
+Next player is Sasha
+Rerendered on action end
+Sasha: bet
+This was a raise, resetting "acted" property
+Next player is Gamak
+Rerendered on action end
+Gamak: fold
+foldCounter was  0
+foldCounter now is  1
+There are 0 all-in players.
+Adding the main pot (375$)
+After updating the state, there are 1 pots to award and 1 potential winners
+Winners:  Sasha
+This is the main pot, it is 375$ strong.
+There are 1 winners.
+Each one will get 375 $.
+The residue will be 0.
+After awarding the Sasha's stack is 548
+The winner is Sasha, the pot was 375, stack is now 548
+hand running status is  false
+Created the backup. number of users is , 6
+
+
+Sasha: lets play a hand
+Julia is now a dealer
+Rerendered on dealing hole cards
+Гхыр!: fold
+foldCounter was  1
+foldCounter now is  2
+Next player is Sasha
+Rerendered on action end
+Sasha: bet
+This was a raise, resetting "acted" property
+Next player is Shoora
+Rerendered on action end
+Shoora: fold
+foldCounter was  2
+foldCounter now is  3
+emitting animation
+Next player is Julia
+Rerendered on action end
+Julia disconnected.
+updated status to disconnected
+Removed a user. Number of connected user is now:  5
+New user connected, user id is -6eQc8Cn4V4Wl1yKAAAO
+reconnecting user
+Julia is now connected
+Rerendered on connection
+Julia: call
+Next player is Kuzja
+Rerendered on action end
+Kuzja: call
+Next player is Gamak
+Rerendered on action end
+Gamak: call
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 0 community cards now.
+evaluating 5 cards
+Sasha's hand is Pair of Jacks, the kicker is Ace
+evaluating 5 cards
+Julia's hand is Highcard King
+evaluating 5 cards
+Kuzja's hand is Pair of Queens, the kicker is Jack
+evaluating 5 cards
+Gamak's hand is Highcard King
+Setting the game variables
+Rerendered on round end
+handpot is now 200
+Next player is Kuzja
+Rerendered on action end
+Kuzja: bet
+This was a raise, resetting "acted" property
+Next player is Gamak
+Rerendered on action end
+Gamak: call
+Next player is Sasha
+Rerendered on action end
+Sasha: call
+Next player is Julia
+Rerendered on action end
+Julia: call
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 3 community cards now.
+evaluating 6 cards
+Sasha's hand is Pair of Jacks, the kicker is Ace
+evaluating 6 cards
+Julia's hand is Highcard King
+evaluating 6 cards
+Kuzja's hand is Pair of Queens, the kicker is Jack
+evaluating 6 cards
+Gamak's hand is Highcard King
+Setting the game variables
+Rerendered on round end
+handpot is now 320
+Next player is Kuzja
+Rerendered on action end
+Kuzja: all in
+This was a raise, resetting "acted" property
+Next player is Gamak
+Rerendered on action end
+Gamak: fold
+foldCounter was  0
+foldCounter now is  1
+Next player is Sasha
+Rerendered on action end
+Sasha: call
+Next player is Julia
+Rerendered on action end
+Julia: call
+BETTING ROUND IS COMPLETE
+Ending round properly.
+there are 4 community cards now.
+evaluating 7 cards
+Sasha's hand is Two pair of Aces and Jacks, the kicker is Nine
+evaluating 7 cards
+Julia's hand is Highcard Ace
+evaluating 7 cards
+Kuzja's hand is Pair of Queens, the kicker is Ace
+Setting the game variables
+Main pot (320) is moved to the Kuzja's sidepot
+After updating pots and ques, this side pots are:
+Kuzja - 401
+Rerendered on round end
+Next player is Kuzja
+Rerendered on action end
+Kuzja: all in
+Next player is Sasha
+Rerendered on action end
+Sasha: bet
+This was a raise, resetting "acted" property
+Next player is Julia
+Rerendered on action end
+Julia: all in
+Main pot (0) is moved to the Kuzja's sidepot
+After updating pots and ques, this side pots are:
+Julia - 228
+Kuzja - 401
+There are 3 all-in players.
+Adding the main pot (0$)
+After updating the state, there are 4 pots to award and 4 potential winners
+Winners:  Sasha
+Winners of the Kuzja's side pot (401$ strong) :  [ 'Sasha' ]
+Sidepot owner is not among the winners. Spilling this pot to the next one
+Winners:  Sasha
+Winners of the Kuzja's side pot (802$ strong) :  [ 'Sasha' ]
+Sidepot owner is not among the winners. Spilling this pot to the next one
+Winners:  Sasha
+Winners of the Julia's side pot (1030$ strong) :  [ 'Sasha' ]
+Sidepot owner is not among the winners. Spilling this pot to the next one
+Winners:  Sasha
+Winners of the Sasha's side pot (1030$ strong) :  [ 'Sasha' ]
+Sasha is among the winners!
+Sasha's stack is now 1357
+The winner is Sasha, the pot was 0, stack is now 1357

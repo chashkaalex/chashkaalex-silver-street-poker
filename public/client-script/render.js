@@ -4,6 +4,27 @@ import {usersData, onTableCards, handPotElem, gameLogElem } from './user-data-el
 const thisUserName = document.getElementById("userName").innerText;
 console.log('Captured the username:', thisUserName);
 
+//getting the card images
+const imgURL = 'https://cdn.jsdelivr.net/gh/chashkaalex/silver-street-poker@svg-cards/public/img/svg-cards/';
+const localDeck = {
+    spades: Array(13),
+    diamonds: Array(13),
+    clubs: Array(13),
+    hearts: Array(13)
+};
+
+for (const suit in localDeck) {
+    console.log(suit);
+    console.log(localDeck[suit]);
+    localDeck[suit].forEach((cardImg, idx) => {
+        cardImg = new Image;
+        cardImg.onload= function() {
+            console.log(suit, idx, 'loaded');
+        };
+        cardImg.src = imgURL + suit + idx +'.svg';
+    });
+};
+
 //creating data object for the user
 const thisUser = {name: thisUserName, holecards: ['', ''], stack: 0, bet:0, topBet: 0};
 
@@ -82,7 +103,6 @@ const rerenderTableUsers = (users, handPot) => {
         
 
 
-        console.log('before checking:')
         if(idx === 0 && user.hasCards && thisUser.holecards[0].symbol) {
             console.log('DISPLAING THIS PLAYER CARDS')
             usersData[idx].cards.forEach((card, idx) => {
@@ -146,8 +166,12 @@ const displayCard = (elem, card) => {
     svgcard.onload = function() {
         elem.style.backgroundImage = "url(" + this.src + ")";;
     };
-    svgcard.src = `https://cdn.jsdelivr.net/gh/chashkaalex/silver-street-poker@cards-with-svg/public/img/svg-cards/${card.suit}${card.strength}.svg`;
-
+    if (localDeck[card.suit][card.strength]) {
+        svgcard.src = localDeck[card.suit][card.strength].src;
+    } else {
+        svgcard.src = imgURL + `${card.suit}${card.strength}.svg`;
+    }
+                
 };
 
 const wipeElem = (elem) => {
