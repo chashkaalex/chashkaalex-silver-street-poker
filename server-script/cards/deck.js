@@ -12,6 +12,22 @@ const queenOfSpades = {suit: "spades", strength: 11,  symbol: '🂭', name: 'que
 const kingOfSpades  = {suit: "spades", strength: 12,  symbol: '🂮', name: 'kingOfSpades'};
 const aceOfSpades   = {suit: "spades", strength: 13,  symbol: '🂡', name: 'aceOfSpades'};
 
+const spades = {
+    2:  twoOfSpades,
+    3:  threeOfSpades,
+    4:  fourOfSpades,
+    5:  fiveOfSpades,
+    6:  sixOfSpades,
+    7:  sevenOfSpades,
+    8:  eightOfSpades,
+    9:  nineOfSpades,
+    10: tenOfSpades,
+    j:  jackOfSpades,
+    q: queenOfSpades,
+    k: kingOfSpades,
+    a: aceOfSpades
+};
+
 const twoOfDiamonds   = {suit: "diamonds", strength: 1,  symbol: '🃂', name: 'twoOfDiamonds'};
 const threeOfDiamonds = {suit: "diamonds", strength: 2,  symbol: '🃃', name: 'threeOfDiamonds'};
 const fourOfDiamonds  = {suit: "diamonds", strength: 3,  symbol: '🃄', name: 'fourOfDiamonds'};
@@ -25,6 +41,22 @@ const jackOfDiamonds  = {suit: "diamonds", strength: 10,  symbol: '🃋', name: 
 const queenOfDiamonds = {suit: "diamonds", strength: 11,  symbol: '🃍', name: 'queenOfDiamonds'};
 const kingOfDiamonds  = {suit: "diamonds", strength: 12,  symbol: '🃎', name: 'kingOfDiamonds'};
 const aceOfDiamonds   = {suit: "diamonds", strength: 13,  symbol: '🃁', name: 'aceOfDiamonds'};
+
+const diamonds = {
+    2:  twoOfDiamonds,
+    3:  threeOfDiamonds,
+    4:  fourOfDiamonds,
+    5:  fiveOfDiamonds,
+    6:  sixOfDiamonds,
+    7:  sevenOfDiamonds,
+    8:  eightOfDiamonds,
+    9:  nineOfDiamonds,
+    10: tenOfDiamonds,
+    j:  jackOfDiamonds,
+    q:  queenOfDiamonds,
+    k:  kingOfDiamonds,
+    a:  aceOfDiamonds
+};
 
 const twoOfClubs   = {suit: "clubs", strength: 1,  symbol: '🃒', name: 'twoOfClubs'};
 const threeOfClubs = {suit: "clubs", strength: 2,  symbol: '🃓', name: 'threeOfClubs'};
@@ -40,6 +72,22 @@ const queenOfClubs = {suit: "clubs", strength: 11,  symbol: '🃝', name: 'queen
 const kingOfClubs  = {suit: "clubs", strength: 12,  symbol: '🃞', name: 'kingOfClubs'};
 const aceOfClubs   = {suit: "clubs", strength: 13,  symbol: '🃑', name: 'aceOfClubs'};
 
+const clubs = {
+    2:twoOfClubs,
+    3:threeOfClubs,
+    4:fourOfClubs,
+    5:fiveOfClubs,
+    6:sixOfClubs,
+    7:sevenOfClubs,
+    8:eightOfClubs,
+    9: nineOfClubs,
+    10: tenOfClubs,
+    j: jackOfClubs,
+    q: queenOfClubs,
+    k: kingOfClubs,
+    a: aceOfClubs
+};
+
 const twoOfHearts   = {suit: "hearts", strength: 1,  symbol: '🂲', name: 'twoOfHearts'};
 const threeOfHearts = {suit: "hearts", strength: 2,  symbol: '🂳', name: 'threeOfHearts'};
 const fourOfHearts  = {suit: "hearts", strength: 3,  symbol: '🂴', name: 'fourOfHearts'};
@@ -54,6 +102,21 @@ const queenOfHearts = {suit: "hearts", strength: 11,  symbol: '🂽', name: 'que
 const kingOfHearts  = {suit: "hearts", strength: 12,  symbol: '🂾', name: 'kingOfHearts'};
 const aceOfHearts   = {suit: "hearts", strength: 13,  symbol: '🂱', name: 'aceOfHearts'};
 
+const hearts = {
+    2:twoOfHearts,
+    3:threeOfHearts,
+    4:fourOfHearts,
+    5:fiveOfHearts,
+    6:sixOfHearts,
+    7:sevenOfHearts,
+    8:eightOfHearts,
+    9:nineOfHearts,
+    10:tenOfHearts,
+    j:jackOfHearts,
+    q:queenOfHearts,
+    k:kingOfHearts,
+    a: aceOfHearts
+}
     
     
 const fulldeck = [
@@ -66,6 +129,9 @@ nineOfClubs, tenOfClubs, jackOfClubs, queenOfClubs, kingOfClubs, aceOfClubs,
 twoOfHearts, threeOfHearts, fourOfHearts, fiveOfHearts, sixOfHearts, sevenOfHearts, eightOfHearts,
 nineOfHearts, tenOfHearts, jackOfHearts, queenOfHearts, kingOfHearts, aceOfHearts
 ];
+
+//this object exists for the testing purposes only, the game itself uses only the array deck
+const orderedFullDeck = {spades, }
 
 const getFullDeckObj = () => {
     return {deck: [...fulldeck], deckLen: fulldeck.length}

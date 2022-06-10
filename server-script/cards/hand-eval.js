@@ -18,6 +18,7 @@ const getStrName = (str) => {
 
 
 const evaluateHand = (hand) => {
+	//console.log(hand)
 	let evaluator = 0;
 	let string ='';
 	const suitLut = Array(4).fill(0);
@@ -65,7 +66,7 @@ const evaluateHand = (hand) => {
 			}
 		});
 		evaluator = 8000000 + (fourOfaKindCheck+1)*10000 + kicker;
-		string = `Four of a kind of ${getStrName(fourOfaKindCheck+1)}, the kicker is ${getStrName(kicker+1)}`;
+		string = `Four of a kind of ${getStrName(fourOfaKindCheck+1)}, the kicker is ${getStrName(kicker+1)}`;		
 		// console.log(`This hand is ${string}, evaluator - ${evaluator}`);
 		return({evaluator, string});
 	}
@@ -93,7 +94,7 @@ const evaluateHand = (hand) => {
 			return({evaluator, string});
 		}
 		evaluator = 4000000 + (threeOfaKindCheck+1)*10000 + kicker;
-		string = `Three of a kind of ${getStrName(threeOfaKindCheck+1)}, the kicker is ${getStrName(kicker+1)}`
+		string = `Three of a kind of ${getStrName(threeOfaKindCheck+1)}s, the kicker is ${getStrName(kicker+1)}`	
 		// console.log(`This hand is ${string}, evaluator - ${evaluator}`);
 		return({evaluator, string});
 	}
